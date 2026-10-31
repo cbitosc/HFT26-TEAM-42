@@ -1,0 +1,1325 @@
+{
+ "exported_at": 1793435073806,
+ "block": 12032617,
+ "log": [
+  {
+   "ts": 1793434008000,
+   "block": 12032531,
+   "entry_id": "0x531efceb9d7c36cad81a2867e3ad5f7f3028635a9500081bec6b43bd86b0e747",
+   "tx": "0x4421fe9585c6e1fd1974066b929405dc72f5432b5a790323b9662c5037c83229",
+   "event": "EvidencePosted",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "supported": false,
+   "tier": 0
+  },
+  {
+   "ts": 1793433840000,
+   "block": 12032517,
+   "entry_id": "0x531efceb9d7c36cad81a2867e3ad5f7f3028635a9500081bec6b43bd86b0e747",
+   "tx": "0x2e7df1a68a643404b860cc66017c23026c06d3ab6e7d55fbac6e59fbda34aba6",
+   "event": "RewardPaid",
+   "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793433840000,
+   "block": 12032517,
+   "entry_id": "0x531efceb9d7c36cad81a2867e3ad5f7f3028635a9500081bec6b43bd86b0e747",
+   "tx": "0x2e7df1a68a643404b860cc66017c23026c06d3ab6e7d55fbac6e59fbda34aba6",
+   "event": "ImprovementRecorded",
+   "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "cid": "bafkreibfhfot6p3qpb5em7z537k5rb3tymgvfousznhua4ls5i5o6iwcqy",
+   "verified": true
+  },
+  {
+   "ts": 1793395908000,
+   "block": 12029374,
+   "entry_id": "0x4665dc3bc761b1f4bc2629efa762f8a470491f9c1b3946276eb1ba845ef3a822",
+   "tx": "0x04009ce9cffcebb4161d4c2efe651a850c274dbe2ce8e1f3208a146568dd65ce",
+   "event": "EvidencePosted",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "supported": true,
+   "tier": 1
+  },
+  {
+   "ts": 1793395896000,
+   "block": 12029373,
+   "entry_id": "0x6338a71a4238682cea244d1963e54380aca5c836502c65da94bda8ea5374e9cd",
+   "tx": "0x2e5c1852aada5e9f9c531b18b38a6b626e5e9ee0d3baf38c94b30cf2145eb69c",
+   "event": "EvidencePosted",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "supported": true,
+   "tier": 1
+  },
+  {
+   "ts": 1793395872000,
+   "block": 12029371,
+   "entry_id": "0x0c5c8fb6c6ac03653d5260a600c23574b5a22add1c93a43ef643cbd42eaeb7ce",
+   "tx": "0x2ad9f29565213e2c2418926a81e995b225401fe7b06a847cc743fd9a97cba6cf",
+   "event": "EvidencePosted",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "supported": true,
+   "tier": 1
+  },
+  {
+   "ts": 1793395860000,
+   "block": 12029370,
+   "entry_id": "0x698d269e524259c9c8c3f947262def8bb0972b80374c6af86223445ee633c990",
+   "tx": "0x739775932779b6386e2b222f52f9731a5c9804423d8ff0a0c3bb3a441f78e178",
+   "event": "EvidencePosted",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "supported": true,
+   "tier": 1
+  },
+  {
+   "ts": 1793395836000,
+   "block": 12029368,
+   "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+   "tx": "0xc5fd5bf110264a2ad61a1b833f1b20bc2ec686fe0129116b040a46c929fc6efb",
+   "event": "EvidencePosted",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "supported": true,
+   "tier": 1
+  },
+  {
+   "ts": 1793395812000,
+   "block": 12029366,
+   "entry_id": "0xce493d58f47e7b8e213c9c7cc9a44e3b9edca26db58ed30b99a8618099500724",
+   "tx": "0xb261589c8574c217d1eb5e5d4a304ce9d72814412baee5b9290835dad380de7e",
+   "event": "EvidencePosted",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "supported": true,
+   "tier": 1
+  },
+  {
+   "ts": 1793395800000,
+   "block": 12029365,
+   "entry_id": "0x422afccc8a88aeeecb2c2db1c8a0e13ea1bdbd6d27495ce5a5864823bb8c917f",
+   "tx": "0xe0792726036ab794c804d909c2e301685356cec7656310302034421db70a394a",
+   "event": "RewardPaid",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793395800000,
+   "block": 12029365,
+   "entry_id": "0x422afccc8a88aeeecb2c2db1c8a0e13ea1bdbd6d27495ce5a5864823bb8c917f",
+   "tx": "0xe0792726036ab794c804d909c2e301685356cec7656310302034421db70a394a",
+   "event": "ImprovementRecorded",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "cid": "bafkreiaoqcottiigmstto3vhah4wqdpubhfw4b3xhcmmr6z4htvse42lpi",
+   "verified": true
+  },
+  {
+   "ts": 1793395632000,
+   "block": 12029351,
+   "entry_id": "0x51ab2e29eba05a8f8eecc58d8de3625f6e83a2dc202782966ab8104b2f60bbe7",
+   "tx": "0x944704f9ff3e7634feaa428c5863078e14cc1ab4552bffdb691cff7ab96ac307",
+   "event": "ImprovementRecorded",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "cid": "bafkreih3txkuff5ilrmgv2hrsmdedqn5eclbswd7a376v5cxuk4n4ugnuq",
+   "verified": false
+  },
+  {
+   "ts": 1793394312000,
+   "block": 12029242,
+   "entry_id": "0xce493d58f47e7b8e213c9c7cc9a44e3b9edca26db58ed30b99a8618099500724",
+   "tx": "0xc8e7ff504bf3d72d31e891f7b223ba949335704fd880f7675a2d6b797e6d6824",
+   "event": "ImprovementRecorded",
+   "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "cid": "bafkreicd2xnurllzlelafxcykbl4k5o3v2d5ztxprem4i6miqrsi7hka2y",
+   "verified": false
+  },
+  {
+   "ts": 1793394108000,
+   "block": 12029225,
+   "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+   "tx": "0x8ddcec061ee779f3b337bf559508ebedbab436c6c1bf3360551b8fd85e8cf307",
+   "event": "RewardPaid",
+   "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793394108000,
+   "block": 12029225,
+   "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+   "tx": "0x8ddcec061ee779f3b337bf559508ebedbab436c6c1bf3360551b8fd85e8cf307",
+   "event": "ImprovementRecorded",
+   "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "cid": "bafkreia4dubuxuyegm27uiktpxmmzsofx6kxavlgnm4k4gh5wmnljrg4ji",
+   "verified": true
+  },
+  {
+   "ts": 1793392488000,
+   "block": 12029091,
+   "entry_id": "0xab581b733a56909f56cd2827da58ef476215be759ec7d0c4fc3ab8acc6892a2d",
+   "tx": "0x491fca31895519107923db7c8fd967ceef1bd85e4b6eb397b19ccab632f776bc",
+   "event": "RewardPaid",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793392488000,
+   "block": 12029091,
+   "entry_id": "0xab581b733a56909f56cd2827da58ef476215be759ec7d0c4fc3ab8acc6892a2d",
+   "tx": "0x491fca31895519107923db7c8fd967ceef1bd85e4b6eb397b19ccab632f776bc",
+   "event": "ImprovementRecorded",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "cid": "bafkreie52upvqoau2wuyt6bxja2k3kkcwnta6efzcsobfrvmy2lbe4r3de",
+   "verified": true
+  },
+  {
+   "ts": 1793389212000,
+   "block": 12028820,
+   "entry_id": "0x359d426386cda23c1f436fbef3b839a8ff930482989b81a281818a19a46d4064",
+   "tx": "0x499b46e96a1c3e3e5f28bee8f809d0759241a1966b422c4dc1de5a3a740f29de",
+   "event": "RewardPaid",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793389212000,
+   "block": 12028820,
+   "entry_id": "0x359d426386cda23c1f436fbef3b839a8ff930482989b81a281818a19a46d4064",
+   "tx": "0x499b46e96a1c3e3e5f28bee8f809d0759241a1966b422c4dc1de5a3a740f29de",
+   "event": "ImprovementRecorded",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "cid": "bafkreie66dfds3z63ah33zyyufhvrxbfqxr62pq4khf4ybbumnpoavbr2a",
+   "verified": true
+  },
+  {
+   "ts": 1793388336000,
+   "block": 12028747,
+   "entry_id": "0x698d269e524259c9c8c3f947262def8bb0972b80374c6af86223445ee633c990",
+   "tx": "0xa1c971ddacdf45bd82065f2f02e2b85f73c356824acf1f4c341f3e89093c0f59",
+   "event": "RewardPaid",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793388336000,
+   "block": 12028747,
+   "entry_id": "0x698d269e524259c9c8c3f947262def8bb0972b80374c6af86223445ee633c990",
+   "tx": "0xa1c971ddacdf45bd82065f2f02e2b85f73c356824acf1f4c341f3e89093c0f59",
+   "event": "ImprovementRecorded",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "cid": "bafkreidcuv3rkxy6stiqxy4ucbo5o75ipd66horsokgcxq7gkrxnrky2sa",
+   "verified": true
+  },
+  {
+   "ts": 1793388120000,
+   "block": 12028729,
+   "entry_id": "0x0c5c8fb6c6ac03653d5260a600c23574b5a22add1c93a43ef643cbd42eaeb7ce",
+   "tx": "0xbc2122d9bd5ee9cff461302973fb57a708c641ed7e6932f9ceb06cae295912ac",
+   "event": "RewardPaid",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793388120000,
+   "block": 12028729,
+   "entry_id": "0x0c5c8fb6c6ac03653d5260a600c23574b5a22add1c93a43ef643cbd42eaeb7ce",
+   "tx": "0xbc2122d9bd5ee9cff461302973fb57a708c641ed7e6932f9ceb06cae295912ac",
+   "event": "ImprovementRecorded",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "cid": "bafkreiggxhih7jyexu7he4hvgphtji7di6mkqvwkudlox23tphznvycbiy",
+   "verified": true
+  },
+  {
+   "ts": 1793387688000,
+   "block": 12028693,
+   "entry_id": "0x2d78cf7ac97d0ebcc4b5a4b6703061b8b0c340b771f6d1eeb094a4fdcef8804b",
+   "tx": "0xed1797d47597688c229e81dbd2e1dc32dda76992e01b4e646f1fd02dfa3e1acb",
+   "event": "EvidencePosted",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "supported": true,
+   "tier": 1
+  },
+  {
+   "ts": 1793387676000,
+   "block": 12028692,
+   "entry_id": "0x938968e86bf23d784ff5f453905cb42b3ae02ad0a8b2247bb6367b481d5d2959",
+   "tx": "0x4cf5baabb28962b98706acd96237978a94cdeba6133c0afa56869bc030e651fe",
+   "event": "EvidencePosted",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "supported": true,
+   "tier": 1
+  },
+  {
+   "ts": 1793387664000,
+   "block": 12028691,
+   "entry_id": "0x6338a71a4238682cea244d1963e54380aca5c836502c65da94bda8ea5374e9cd",
+   "tx": "0xc822a0c82a74de122cee198a90187b4a11d594398d8d05ca33631984db2438fb",
+   "event": "RewardPaid",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793387664000,
+   "block": 12028691,
+   "entry_id": "0x6338a71a4238682cea244d1963e54380aca5c836502c65da94bda8ea5374e9cd",
+   "tx": "0xc822a0c82a74de122cee198a90187b4a11d594398d8d05ca33631984db2438fb",
+   "event": "ImprovementRecorded",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "cid": "bafkreibonjspyi4vcio66ss3msajuwmrdscfq6ngoke6ymydeb7mi6pxnu",
+   "verified": true
+  },
+  {
+   "ts": 1793387424000,
+   "block": 12028671,
+   "entry_id": "0x4665dc3bc761b1f4bc2629efa762f8a470491f9c1b3946276eb1ba845ef3a822",
+   "tx": "0x811e48fe3b65aed029abc641c1449b793f3108f53318173f72344af3c9ed8f51",
+   "event": "RewardPaid",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793387424000,
+   "block": 12028671,
+   "entry_id": "0x4665dc3bc761b1f4bc2629efa762f8a470491f9c1b3946276eb1ba845ef3a822",
+   "tx": "0x811e48fe3b65aed029abc641c1449b793f3108f53318173f72344af3c9ed8f51",
+   "event": "ImprovementRecorded",
+   "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "cid": "bafkreigg7id6l3cyenz4pggzpssjhssmimz5aayhwvclkwdt7ehvxzs37u",
+   "verified": true
+  },
+  {
+   "ts": 1793384988000,
+   "block": 12028471,
+   "entry_id": "0x2d78cf7ac97d0ebcc4b5a4b6703061b8b0c340b771f6d1eeb094a4fdcef8804b",
+   "tx": "0x3c71746b290581e6c35ea8a59e6ea91e0edb8504cdc13cf567df44a8f20afbd2",
+   "event": "RewardPaid",
+   "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793384988000,
+   "block": 12028471,
+   "entry_id": "0x2d78cf7ac97d0ebcc4b5a4b6703061b8b0c340b771f6d1eeb094a4fdcef8804b",
+   "tx": "0x3c71746b290581e6c35ea8a59e6ea91e0edb8504cdc13cf567df44a8f20afbd2",
+   "event": "ImprovementRecorded",
+   "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "cid": "bafkreicknssvxkvrtsm42bo2rjnsdhm7c4nmvhwblozywku3aku4hpohcy",
+   "verified": true
+  },
+  {
+   "ts": 1793384772000,
+   "block": 12028454,
+   "entry_id": "0x938968e86bf23d784ff5f453905cb42b3ae02ad0a8b2247bb6367b481d5d2959",
+   "tx": "0xb9b6b5a1140088d07d4e440339ddee10100ee734a24d2efe869e4cf8c3c8f73c",
+   "event": "RewardPaid",
+   "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "amount_wei": "1000000000000000"
+  },
+  {
+   "ts": 1793384772000,
+   "block": 12028454,
+   "entry_id": "0x938968e86bf23d784ff5f453905cb42b3ae02ad0a8b2247bb6367b481d5d2959",
+   "tx": "0xb9b6b5a1140088d07d4e440339ddee10100ee734a24d2efe869e4cf8c3c8f73c",
+   "event": "ImprovementRecorded",
+   "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "cid": "bafkreihzirf6fbn72fmfhcyyomsu46wmzfwvb4zcvt5tohkqbylz2sl4nm",
+   "verified": true
+  }
+ ],
+ "entries": [
+  {
+   "entry_id": "0x938968e86bf23d784ff5f453905cb42b3ae02ad0a8b2247bb6367b481d5d2959",
+   "cid": "bafkreihzirf6fbn72fmfhcyyomsu46wmzfwvb4zcvt5tohkqbylz2sl4nm",
+   "tx": "0xb9b6b5a1140088d07d4e440339ddee10100ee734a24d2efe869e4cf8c3c8f73c",
+   "block": 12028454,
+   "author": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "verified": true,
+   "tier": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793384772000,
+   "blob": {
+    "agent_address": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "agent_id": "agentA",
+    "changelog": [
+     "Added validation for negative capacity in `__init__` method.",
+     "Added handling for zero capacity in `put` method to make it a no-op.",
+     "Modified `put` method to call `on_evict` when replacing an existing key."
+    ],
+    "created_at": 1793384721,
+    "critique": {
+     "findings": [
+      {
+       "issue": "Negative capacity not validated, allowing invalid cache creation",
+       "severity": "high",
+       "suggested_fix": "In __init__, add: if capacity < 0: raise ValueError('Capacity must be non-negative')"
+      },
+      {
+       "issue": "Capacity zero causes KeyError in put when trying to pop from an empty cache during new key insertion",
+       "severity": "high",
+       "suggested_fix": "Handle capacity zero by making put a no-op: if self.capacity == 0: return"
+      },
+      {
+       "issue": "When replacing an existing key via put, the old value is evicted but on_evict is not called",
+       "severity": "medium",
+       "suggested_fix": "In put, when key exists, remove old key-value and call on_evict with (key, old_value) before inserting new value"
+      }
+     ],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "Negative capacity not validated, allowing invalid cache creation",
+    "from_version": "V1",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0x922313cc5729d22dab8f7e5e422201052e7a144389104a5b2f5679d92c971d52"
+    },
+    "hypothesis": "Added validation for negative capacity in `__init__` method.",
+    "kind": "improvement",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x2a6f78a0eb896d6daa0207f4199acb712b819a6b034654fb52371b9ce9bb680b",
+    "score_hash_old": "0x123a145ff564e22e4de4ba1d990929e0844dd19dab64d536a23eb584115298ce",
+    "scores": {
+     "new": [
+      100,
+      92,
+      100,
+      95
+     ],
+     "old": [
+      100,
+      75,
+      100,
+      92
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "lru-cache",
+    "to_version": "V2",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0x2d78cf7ac97d0ebcc4b5a4b6703061b8b0c340b771f6d1eeb094a4fdcef8804b",
+   "cid": "bafkreicknssvxkvrtsm42bo2rjnsdhm7c4nmvhwblozywku3aku4hpohcy",
+   "tx": "0x3c71746b290581e6c35ea8a59e6ea91e0edb8504cdc13cf567df44a8f20afbd2",
+   "block": 12028471,
+   "author": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "verified": true,
+   "tier": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793384988000,
+   "blob": {
+    "agent_address": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "agent_id": "agentA",
+    "changelog": [
+     "Removed `on_evict` callback invocation during key update in `put` method.",
+     "Updated key update block to only remove the key from cache without calling `on_evict`."
+    ],
+    "created_at": 1793384939,
+    "critique": {
+     "findings": [
+      {
+       "issue": "The `put` method incorrectly triggers the `on_evict` callback when updating an existing key. This violates the specification that `on_evict` should only be called for evicted items due to capacity constraints.",
+       "severity": "high",
+       "suggested_fix": "Remove the `on_evict` call in the key update branch. Change the update block to: `if key in self.cache: self.cache.pop(key)` without invoking the callback."
+      }
+     ],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "The `put` method incorrectly triggers the `on_evict` callback when updating an existing key. This violates the specification that `on_evict` should only be called for evicted items due to capacity constraints.",
+    "from_version": "V2",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0x922313cc5729d22dab8f7e5e422201052e7a144389104a5b2f5679d92c971d52"
+    },
+    "hypothesis": "Removed `on_evict` callback invocation during key update in `put` method.",
+    "kind": "improvement",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x1965ef6982498f4d364c1c0c36cfb39a1393cb57d97ef14e091e74767bb3eb24",
+    "score_hash_old": "0x2a6f78a0eb896d6daa0207f4199acb712b819a6b034654fb52371b9ce9bb680b",
+    "scores": {
+     "new": [
+      100,
+      100,
+      100,
+      100
+     ],
+     "old": [
+      100,
+      92,
+      100,
+      95
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "lru-cache",
+    "to_version": "V3",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0x4665dc3bc761b1f4bc2629efa762f8a470491f9c1b3946276eb1ba845ef3a822",
+   "cid": "bafkreigg7id6l3cyenz4pggzpssjhssmimz5aayhwvclkwdt7ehvxzs37u",
+   "tx": "0x811e48fe3b65aed029abc641c1449b793f3108f53318173f72344af3c9ed8f51",
+   "block": 12028671,
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "verified": true,
+   "tier": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793387424000,
+   "blob": {
+    "agent_address": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "agent_id": "agentB",
+    "changelog": [
+     "Added validation for non-positive TTL values in the constructor.",
+     "Implemented removal of expired items before evicting live items in `put()`.",
+     "Used `OrderedDict.move_to_end()` for rewrites to maintain proper ordering.",
+     "Removed unnecessary updates to access order in `get()` and `__contains__`.",
+     "Introduced an expiration min-heap to achieve O(1) amortized cost for `__len__`.",
+     "Implemented lazy removal of expired items during operations to prevent accumulation of dead items."
+    ],
+    "created_at": 1793387373,
+    "critique": {
+     "findings": [
+      {
+       "issue": "Does not reject non-positive TTL values in constructor",
+       "severity": "High",
+       "suggested_fix": "Add validation: if ttl <= 0: raise ValueError(\"TTL must be positive\")"
+      },
+      {
+       "issue": "Expired items are not removed during put() when at capacity, causing live items to be evicted unnecessarily",
+       "severity": "High",
+       "suggested_fix": "Before evicting a live item in put(), scan and remove at least one expired item if available"
+      },
+      {
+       "issue": "Eviction order is incorrect for rewrites. Rewritten items should become newest, but current OrderedDict removal/reinsertion breaks insertion order tracking",
+       "severity": "High",
+       "suggested_fix": "Use OrderedDict.move_to_end() for rewrites instead of del+reinsert to maintain proper ordering"
+      },
+      {
+       "issue": "get() and __contains__ do not update access order, violating LRU eviction semantics for writes",
+       "severity": "Medium",
+       "suggested_fix": "Implement read-update using OrderedDict.move_to_end() in get() and __contains__ if spec requires read-refresh (but spec says writes determine order)"
+      },
+      {
+       "issue": "__len__ is O(n) due to full scan for expired items, violating large-capacity efficiency requirement",
+       "severity": "High",
+       "suggested_fix": "Maintain expiration min-heap and lazy removal during operations to achieve O(1) amortized cost"
+      },
+      {
+       "issue": "No proactive expiration cleanup causes accumulation of dead items, slowing operations and wasting space",
+       "severity": "Medium",
+       "suggested_fix": "Implement bidirectional linking between cache and expiry structures for O(1) expired item access"
+      }
+     ],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "Does not reject non-positive TTL values in constructor",
+    "from_version": "V1",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0xcbabadca83909139b639ccf9af839d517484ea4b085aa9484edc47f9479fb45e"
+    },
+    "hypothesis": "Added validation for non-positive TTL values in the constructor.",
+    "kind": "improvement",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x29f45a8b187c84bd0a0ff06a5fd822cb61877a29f43769267a860ad83b110771",
+    "score_hash_old": "0x25fc5a28c43dfdc60f4c069a9b5eb01d199a2b785ff3b7bfbd5bd19f1703367a",
+    "scores": {
+     "new": [
+      80,
+      83,
+      0,
+      30
+     ],
+     "old": [
+      80,
+      67,
+      0,
+      45
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "ttl-cache",
+    "to_version": "V2",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0x6338a71a4238682cea244d1963e54380aca5c836502c65da94bda8ea5374e9cd",
+   "cid": "bafkreibonjspyi4vcio66ss3msajuwmrdscfq6ngoke6ymydeb7mi6pxnu",
+   "tx": "0xc822a0c82a74de122cee198a90187b4a11d594398d8d05ca33631984db2438fb",
+   "block": 12028691,
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "verified": true,
+   "tier": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793387664000,
+   "blob": {
+    "agent_address": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "agent_id": "agentB",
+    "changelog": [
+     "Added `live_count` attribute to track the number of live items.",
+     "Implemented `_cleanup_expired` method to handle expired items cleanup.",
+     "Updated `put` method to call `_cleanup_expired` instead of directly removing expired items.",
+     "Adjusted `put` method to increment `live_count` when adding a new item.",
+     "Modified `_remove` method to decrement `live_count` when removing an item.",
+     "Updated `__contains__` method to use `_cleanup_expired` for cleanup.",
+     "Modified `__len__` method to use `_cleanup_expired` and return `live_count` instead of the length of `cache`."
+    ],
+    "created_at": 1793387615,
+    "critique": {
+     "findings": [
+      {
+       "issue": "The cleanup loop in put, __len__, and __contains__ removes keys based on heap expiry times without verifying if the key has been updated (new TTL). This leads to premature removal of live items that were rewritten, violating TTL semantics.",
+       "severity": "critical",
+       "suggested_fix": "After popping from the heap, compare the popped expiry time with the current expiry time in expiry_times. Only remove if they match: if self.expiry_times.get(expired_key, None) == popped_expiry_time."
+      },
+      {
+       "issue": "Capacity checks include expired items, causing unnecessary evictions of live items and violating capacity constraints. The condition 'len(self.cache) >= self.capacity' counts both live and expired entries.",
+       "severity": "high",
+       "suggested_fix": "Maintain a separate count of live items or implement full expiry cleanup before capacity checks. Alternatively, restructure to track only live items in the OrderedDict."
+      },
+      {
+       "issue": "__len__ only removes top-expired items, returning inflated counts that include non-top expired entries. This violates the spec requiring the count of live items.",
+       "severity": "high",
+       "suggested_fix": "Implement comprehensive expiry cleanup in __len__ (costly) or maintain a live item counter updated on put/remove/expiry events."
+      },
+      {
+       "issue": "Heap accumulates stale expiry entries for updated keys, causing unbounded growth. While correctness is maintained via existence checks, memory usage scales with operations, not capacity.",
+       "severity": "medium",
+       "suggested_fix": "Implement heap entry invalidation (e.g., using version tags or lazy removal) or use a priority queue supporting updates."
+      },
+      {
+       "issue": "Eviction logic may remove expired items first, but only one item per put. This fails to free space efficiently when multiple expired items exist, triggering unnecessary live item eviction.",
+       "severity": "medium",
+       "suggested_fix": "Before evicting live items, remove all expired entries. Optimize by batching heap pops during cleanup loops."
+      }
+     ],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "The cleanup loop in put, __len__, and __contains__ removes keys based on heap expiry times without verifying if the key has been updated (new TTL). This leads to premature removal of live items that were rewritten, violating TTL semantics.",
+    "from_version": "V2",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0xcbabadca83909139b639ccf9af839d517484ea4b085aa9484edc47f9479fb45e"
+    },
+    "hypothesis": "Added `live_count` attribute to track the number of live items.",
+    "kind": "improvement",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x1e72a841c9122c5417cbd62806484092ccd4b7783f9d90fd54ed9933a47edefc",
+    "score_hash_old": "0x29f45a8b187c84bd0a0ff06a5fd822cb61877a29f43769267a860ad83b110771",
+    "scores": {
+     "new": [
+      80,
+      83,
+      0,
+      45
+     ],
+     "old": [
+      80,
+      83,
+      0,
+      30
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "ttl-cache",
+    "to_version": "V3",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0x0c5c8fb6c6ac03653d5260a600c23574b5a22add1c93a43ef643cbd42eaeb7ce",
+   "cid": "bafkreiggxhih7jyexu7he4hvgphtji7di6mkqvwkudlox23tphznvycbiy",
+   "tx": "0xbc2122d9bd5ee9cff461302973fb57a708c641ed7e6932f9ceb06cae295912ac",
+   "block": 12028729,
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "verified": true,
+   "tier": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793388120000,
+   "blob": {
+    "agent_address": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "agent_id": "agentB",
+    "changelog": [
+     "Added input validation for non-negative capacity and positive TTL in `__init__`.",
+     "Added `_remove_expired` method to handle expired items cleanup.",
+     "Added early return in `put()` if capacity is zero or less.",
+     "Modified `put()` to clean up expired items before checking capacity.",
+     "Updated `put()` eviction condition to only evict for new keys when cache remains at capacity after cleanup and key removal.",
+     "Reused `_remove_expired` in `__len__` to improve efficiency."
+    ],
+    "created_at": 1793388066,
+    "critique": {
+     "findings": [
+      {
+       "issue": "Missing input validation for negative capacity and non-positive TTL values.",
+       "severity": "high",
+       "suggested_fix": "Add validation in __init__: if capacity < 0 raise ValueError('Capacity must be non-negative'); if ttl <= 0 raise ValueError('TTL must be positive')."
+      },
+      {
+       "issue": "Capacity zero handling causes StopIteration when evicting from empty cache.",
+       "severity": "high",
+       "suggested_fix": "In put(), add early return: if self.capacity <= 0: return"
+      },
+      {
+       "issue": "Expired items count towards capacity, causing unnecessary live evictions.",
+       "severity": "high",
+       "suggested_fix": "In put(), add expired item cleanup before capacity check: if len(self.cache) >= self.capacity: self._remove_expired(current_time)"
+      },
+      {
+       "issue": "Eviction logic fails to account for cache size changes after existing key removal.",
+       "severity": "high",
+       "suggested_fix": "Modify put() eviction condition: only evict for new keys when cache remains at capacity after cleanup and key removal. Use: if key not in self.cache and len(self.cache) >= self.capacity"
+      },
+      {
+       "issue": "Inefficient O(n) expiration handling in __len__ and put() impacts large-scale performance.",
+       "severity": "medium",
+       "suggested_fix": "For production, consider heap-based expiration tracking. For correctness, add helper: def _remove_expired(self, current_time=None): ... and reuse in __len__ and put()."
+      }
+     ],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "Missing input validation for negative capacity and non-positive TTL values.",
+    "from_version": "V1",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0xcbabadca83909139b639ccf9af839d517484ea4b085aa9484edc47f9479fb45e"
+    },
+    "hypothesis": "Added input validation for non-negative capacity and positive TTL in `__init__`.",
+    "kind": "improvement",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x1e8a75c33887a05ae533a1e90903c6ef7731f9bd02a54f8c801b22c5bad4cca1",
+    "score_hash_old": "0x2db551c3f9e7664931ab6fbcab55074c24ac7c2c80bd3ddab75039301cabaf3d",
+    "scores": {
+     "new": [
+      80,
+      83,
+      0,
+      35
+     ],
+     "old": [
+      80,
+      50,
+      0,
+      60
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "ttl-cache",
+    "to_version": "V2",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0x698d269e524259c9c8c3f947262def8bb0972b80374c6af86223445ee633c990",
+   "cid": "bafkreidcuv3rkxy6stiqxy4ucbo5o75ipd66horsokgcxq7gkrxnrky2sa",
+   "tx": "0xa1c971ddacdf45bd82065f2f02e2b85f73c356824acf1f4c341f3e89093c0f59",
+   "block": 12028747,
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "verified": true,
+   "tier": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793388336000,
+   "blob": {
+    "agent_address": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "agent_id": "agentB",
+    "changelog": [
+     "Introduced `heapq` for efficient expiration management.",
+     "Replaced linear scan with a min-heap in `_remove_expired` method.",
+     "Added `expiry_heap` attribute to store expiration times as tuples `(expiry, key)`.",
+     "Updated `put` method to push new entries into the `expiry_heap`.",
+     "Ensured `_remove_expired` is called before eviction operations in `put`.",
+     "Used a single `current_time` value per method call to avoid race conditions."
+    ],
+    "created_at": 1793388288,
+    "critique": {
+     "findings": [
+      {
+       "issue": "Efficiency is severely impacted by O(n) expiration scans in _remove_expired, called in every operation. This violates the requirement to stay fast at large capacities and causes the efficiency score of 0.",
+       "severity": "High",
+       "suggested_fix": "Replace linear expiration scan with a min-heap for expiration times. Store tuples (expiry, key) in heapq, implement lazy deletion. Update _remove_expired to pop only expired items from heap while validating against current expiry_times."
+      },
+      {
+       "issue": "Fails correctness tests: 'test_evicts_oldest_write', 'test_read_does_not_change_eviction_order', 'test_rewrite_moves_item_to_newest'. Likely due to: 1) Expired items not being promptly removed before eviction order checks, 2) Potential race between expiration and eviction logic, 3) Inefficiency causing timeouts.",
+       "severity": "High",
+       "suggested_fix": "1) Ensure _remove_expired is called before all eviction/order operations. 2) Re-evaluate eviction order after expiration removal. 3) Fix efficiency first to rule out timeouts. 4) Add explicit tests for eviction order after expiration."
+      },
+      {
+       "issue": "Inconsistent time sampling in methods. For example, __contains__ calls clock() once for check but may use a different time for deletion if expired, creating narrow race conditions.",
+       "severity": "Medium",
+       "suggested_fix": "Use a single current_time value per method call. Sample time once at start and reuse for all expiration checks and deletions within the method."
+      }
+     ],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "Efficiency is severely impacted by O(n) expiration scans in _remove_expired, called in every operation. This violates the requirement to stay fast at large capacities and causes the efficiency score of 0.",
+    "from_version": "V2",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0xcbabadca83909139b639ccf9af839d517484ea4b085aa9484edc47f9479fb45e"
+    },
+    "hypothesis": "Introduced `heapq` for efficient expiration management.",
+    "kind": "improvement",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x1e72a841c9122c5417cbd62806484092ccd4b7783f9d90fd54ed9933a47edefc",
+    "score_hash_old": "0x1e8a75c33887a05ae533a1e90903c6ef7731f9bd02a54f8c801b22c5bad4cca1",
+    "scores": {
+     "new": [
+      80,
+      83,
+      0,
+      45
+     ],
+     "old": [
+      80,
+      83,
+      0,
+      35
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "ttl-cache",
+    "to_version": "V3",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0x359d426386cda23c1f436fbef3b839a8ff930482989b81a281818a19a46d4064",
+   "cid": "bafkreie66dfds3z63ah33zyyufhvrxbfqxr62pq4khf4ybbumnpoavbr2a",
+   "tx": "0x499b46e96a1c3e3e5f28bee8f809d0759241a1966b422c4dc1de5a3a740f29de",
+   "block": 12028820,
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "verified": true,
+   "tier": 0,
+   "supported": 0,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793389212000,
+   "blob": {
+    "agent_address": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "agent_id": "agentB",
+    "changelog": [
+     "Median paired trial: V1 scored 9100 without memory, 9265 with it"
+    ],
+    "created_at": 1793389161,
+    "critique": {
+     "findings": [],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "Median paired trial: V1 scored 9100 without memory, 9265 with it",
+    "from_version": "B-off",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0xcbabadca83909139b639ccf9af839d517484ea4b085aa9484edc47f9479fb45e"
+    },
+    "hypothesis": "Inherited memory improves Agent B's first attempt on a sibling task",
+    "kind": "improvement",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x22ab6d1d3a487a448c5745d7b849192233a7a766913a8ce6d9a57a6a18114cd3",
+    "score_hash_old": "0x2f04ab481ff3750b28e47bca8515531c683129971db3e4a9edbdabecbbe9bdc9",
+    "scores": {
+     "new": [
+      100,
+      83,
+      100,
+      85
+     ],
+     "old": [
+      100,
+      75,
+      100,
+      90
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "ttl-cache",
+    "to_version": "B-on",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0xab581b733a56909f56cd2827da58ef476215be759ec7d0c4fc3ab8acc6892a2d",
+   "cid": "bafkreie52upvqoau2wuyt6bxja2k3kkcwnta6efzcsobfrvmy2lbe4r3de",
+   "tx": "0x491fca31895519107923db7c8fd967ceef1bd85e4b6eb397b19ccab632f776bc",
+   "block": 12029091,
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "verified": true,
+   "tier": 0,
+   "supported": 0,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793392488000,
+   "blob": {
+    "agent_address": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "agent_id": "agentB",
+    "changelog": [
+     "Median of 5 paired trials: V1 scored 8050 without memory, 9490 with it"
+    ],
+    "created_at": 1793392455,
+    "critique": {
+     "findings": [],
+     "model": "none"
+    },
+    "failure_pattern": "Edge cases missed when starting without inherited memory",
+    "from_version": "V1-without-memory",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0x719c6e004bfd6665f7e0e4f582b73a605f864890ed72466d7914f95a73b51903"
+    },
+    "hypothesis": "Median of 5 paired trials: V1 scored 8050 without memory, 9490 with it",
+    "kind": "improvement",
+    "models": {
+     "critic": "see experiment_code",
+     "generator": "see experiment_code",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x097a5be66b21161c432cf868dfb660669459a1542c06e34193907dd7a09152c9",
+    "score_hash_old": "0x234df67b46f210e47884deb07a3f2bbce3fe03f912128104bd489fc9ccad1b5d",
+    "scores": {
+     "new": [
+      100,
+      83,
+      100,
+      100
+     ],
+     "old": [
+      100,
+      75,
+      60,
+      60
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "ttl-cache",
+    "to_version": "V1-with-memory",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+   "cid": "bafkreia4dubuxuyegm27uiktpxmmzsofx6kxavlgnm4k4gh5wmnljrg4ji",
+   "tx": "0x8ddcec061ee779f3b337bf559508ebedbab436c6c1bf3360551b8fd85e8cf307",
+   "block": 12029225,
+   "author": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "verified": true,
+   "tier": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793394108000,
+   "blob": {
+    "agent_address": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "agent_id": "agentA",
+    "changelog": [
+     "Added capacity validation in `__init__` to raise `ValueError` for negative capacities.",
+     "Modified the `put` method to call `on_evict` only if `capacity` is greater than zero."
+    ],
+    "created_at": 1793394065,
+    "critique": {
+     "findings": [
+      {
+       "issue": "The constructor does not validate the capacity. Negative capacities are accepted, leading to undefined behavior. The harness test 'test_negative_capacity_rejected' fails due to this.",
+       "severity": "high",
+       "suggested_fix": "Add capacity validation in __init__: if capacity < 0, raise ValueError(\"Capacity must be non-negative\")."
+      },
+      {
+       "issue": "The test 'test_capacity_zero_never_fires_on_evict' fails. The cache with capacity zero should immediately evict items on put, but the test expects no on_evict calls. This suggests a potential misunderstanding of requirements or test flaw, though the current implementation aligns with the spec for eviction.",
+       "severity": "medium",
+       "suggested_fix": "Reevaluate test requirements. If the test is correct, ensure on_evict is never called for capacity zero (contradicting the spec). However, the current behavior of calling on_evict during eviction is correct per the provided specification."
+      }
+     ],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "The constructor does not validate the capacity. Negative capacities are accepted, leading to undefined behavior. The harness test 'test_negative_capacity_rejected' fails due to this.",
+    "from_version": "V1",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0xd78856db92063c114e7d52ee7977820b5559eb7599e7042c559dc1a60168d41f"
+    },
+    "hypothesis": "Added capacity validation in `__init__` to raise `ValueError` for negative capacities.",
+    "kind": "improvement",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x043edb5bcac48da7c6c7e4b6e8d27ac8f972c3f7181efeb5e8108f56aba6dd3a",
+    "score_hash_old": "0x005f00ffcd162e3123c29e0931041f41e0a1b91408956f62d81009b7e747afbe",
+    "scores": {
+     "new": [
+      100,
+      100,
+      100,
+      90
+     ],
+     "old": [
+      100,
+      83,
+      100,
+      94
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "lru-cache",
+    "to_version": "V2",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0xce493d58f47e7b8e213c9c7cc9a44e3b9edca26db58ed30b99a8618099500724",
+   "cid": "bafkreicd2xnurllzlelafxcykbl4k5o3v2d5ztxprem4i6miqrsi7hka2y",
+   "tx": "0xc8e7ff504bf3d72d31e891f7b223ba949335704fd880f7675a2d6b797e6d6824",
+   "block": 12029242,
+   "author": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "verified": false,
+   "tier": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793394312000,
+   "blob": {
+    "agent_address": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "agent_id": "agentA",
+    "changelog": [
+     "Removed the `self.capacity > 0` check in the `on_evict` callback invocation.",
+     "Ensured `on_evict` is called whenever an item is evicted, regardless of cache capacity."
+    ],
+    "created_at": 1793394284,
+    "critique": {
+     "findings": [
+      {
+       "issue": "The on_evict callback is not called when capacity is 0 and an item is evicted due to the condition `self.capacity > 0`.",
+       "severity": "high",
+       "suggested_fix": "Remove the `self.capacity > 0` check when calling on_evict. Change the line to: `if self.on_evict:`"
+      }
+     ],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "The on_evict callback is not called when capacity is 0 and an item is evicted due to the condition `self.capacity > 0`.",
+    "from_version": "V2",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0xd78856db92063c114e7d52ee7977820b5559eb7599e7042c559dc1a60168d41f"
+    },
+    "hypothesis": "Removed the `self.capacity > 0` check in the `on_evict` callback invocation.",
+    "kind": "regression",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x0fc7a7dacf4644fa1f268e50f932f5e8ad13d56042bdbb62f74270e5445cc2b8",
+    "score_hash_old": "0x043edb5bcac48da7c6c7e4b6e8d27ac8f972c3f7181efeb5e8108f56aba6dd3a",
+    "scores": {
+     "new": [
+      100,
+      92,
+      100,
+      92
+     ],
+     "old": [
+      100,
+      100,
+      100,
+      90
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "lru-cache",
+    "to_version": "V3",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0x51ab2e29eba05a8f8eecc58d8de3625f6e83a2dc202782966ab8104b2f60bbe7",
+   "cid": "bafkreih3txkuff5ilrmgv2hrsmdedqn5eclbswd7a376v5cxuk4n4ugnuq",
+   "tx": "0x944704f9ff3e7634feaa428c5863078e14cc1ab4552bffdb691cff7ab96ac307",
+   "block": 12029351,
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "verified": false,
+   "tier": 0,
+   "supported": 0,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793395632000,
+   "blob": {
+    "agent_address": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "agent_id": "agentB",
+    "changelog": [
+     "Removed `heapq` import and replaced it with `OrderedDict` for maintaining insertion order.",
+     "Replaced heap-based eviction with `OrderedDict` to evict the oldest inserted item when over capacity.",
+     "Removed `live_count` and used `len(self.cache)` to determine the number of live items.",
+     "Updated `_remove_expired` to check the current expiry time in the cache against the current time to handle updated keys.",
+     "Modified `put` to only evict for new keys when at capacity after removing expired items.",
+     "Simplified the `__init__` method by removing unnecessary checks and initializations related to the heap and `live_count`.",
+     "Removed redundant and incorrect code from the `put` method.",
+     "Simplified the `get` method by removing unnecessary checks and initializations related to the heap and `live_count`."
+    ],
+    "created_at": 1793395608,
+    "critique": {
+     "findings": [
+      {
+       "issue": "The eviction policy incorrectly uses the smallest expiry time from the heap instead of the oldest inserted item. This violates the spec requiring eviction of the item written longest ago when over capacity. The failing test 'test_rewrite_moves_item_to_newest' highlights this issue. Additionally, the heap accumulates stale events from updates/evictions, causing unbounded growth and potential long-term inefficiency.",
+       "severity": "high",
+       "suggested_fix": "1. Replace heap-based eviction with OrderedDict's insertion order. For new keys at capacity, evict the first item using `next(iter(self.cache))`. 2. Remove `live_count` and use `len(self.cache)` for live items. 3. In `_remove_expired`, check the current expiry in cache against current time to handle updated keys. 4. Update `put` to only evict for new keys when at capacity after expired removal."
+      }
+     ],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "The eviction policy incorrectly uses the smallest expiry time from the heap instead of the oldest inserted item. This violates the spec requiring eviction of the item written longest ago when over capacity. The failing test 'test_rewrite_moves_item_to_newest' highlights this issue. Additionally, the heap accumulates stale events from updates/evictions, causing unbounded growth and potential long-term inefficiency.",
+    "from_version": "V1",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0x719c6e004bfd6665f7e0e4f582b73a605f864890ed72466d7914f95a73b51903"
+    },
+    "hypothesis": "Removed `heapq` import and replaced it with `OrderedDict` for maintaining insertion order.",
+    "kind": "regression",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x0082f5fdd8efd84b0eeea8b12983385534325fe8823132434d9f8e353332c9e0",
+    "score_hash_old": "0x2a6f78a0eb896d6daa0207f4199acb712b819a6b034654fb52371b9ce9bb680b",
+    "scores": {
+     "new": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "old": [
+      100,
+      92,
+      100,
+      95
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "ttl-cache",
+    "to_version": "V2",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0x422afccc8a88aeeecb2c2db1c8a0e13ea1bdbd6d27495ce5a5864823bb8c917f",
+   "cid": "bafkreiaoqcottiigmstto3vhah4wqdpubhfw4b3xhcmmr6z4htvse42lpi",
+   "tx": "0xe0792726036ab794c804d909c2e301685356cec7656310302034421db70a394a",
+   "block": 12029365,
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "verified": true,
+   "tier": 0,
+   "supported": 0,
+   "contradicted": 0,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793395800000,
+   "blob": {
+    "agent_address": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "agent_id": "agentB",
+    "changelog": [
+     "Replaced heap-based eviction with `OrderedDict` for maintaining insertion order.",
+     "Used `next(iter(self.cache))` to evict the oldest inserted item when at capacity.",
+     "Removed `live_count` and used `len(self.cache)` to determine the number of live items.",
+     "Updated `_remove_expired` to check current expiry times directly in the cache.",
+     "Modified `put` to only evict for new keys after removing expired items.",
+     "Simplified `__len__` to return the length of `self.cache` directly."
+    ],
+    "created_at": 1793395753,
+    "critique": {
+     "findings": [
+      {
+       "issue": "The eviction policy incorrectly uses the smallest expiry time from the heap instead of the oldest inserted item. This violates the spec requiring eviction of the item written longest ago when over capacity. The failing test 'test_rewrite_moves_item_to_newest' highlights this issue. Additionally, the heap accumulates stale events from updates/evictions, causing unbounded growth and potential long-term inefficiency.",
+       "severity": "high",
+       "suggested_fix": "1. Replace heap-based eviction with OrderedDict's insertion order. For new keys at capacity, evict the first item using `next(iter(self.cache))`. 2. Remove `live_count` and use `len(self.cache)` for live items. 3. In `_remove_expired`, check the current expiry in cache against current time to handle updated keys. 4. Update `put` to only evict for new keys when at capacity after expired removal."
+      }
+     ],
+     "model": "deepseek-ai/DeepSeek-R1-0528"
+    },
+    "failure_pattern": "The eviction policy incorrectly uses the smallest expiry time from the heap instead of the oldest inserted item. This violates the spec requiring eviction of the item written longest ago when over capacity. The failing test 'test_rewrite_moves_item_to_newest' highlights this issue. Additionally, the heap accumulates stale events from updates/evictions, causing unbounded growth and potential long-term inefficiency.",
+    "from_version": "V1",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0x719c6e004bfd6665f7e0e4f582b73a605f864890ed72466d7914f95a73b51903"
+    },
+    "hypothesis": "Replaced heap-based eviction with `OrderedDict` for maintaining insertion order.",
+    "kind": "improvement",
+    "models": {
+     "critic": "deepseek-ai/DeepSeek-R1-0528",
+     "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x1965ef6982498f4d364c1c0c36cfb39a1393cb57d97ef14e091e74767bb3eb24",
+    "score_hash_old": "0x2a6f78a0eb896d6daa0207f4199acb712b819a6b034654fb52371b9ce9bb680b",
+    "scores": {
+     "new": [
+      100,
+      100,
+      100,
+      100
+     ],
+     "old": [
+      100,
+      92,
+      100,
+      95
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "ttl-cache",
+    "to_version": "V3",
+    "weights_version": "w-40-30-15-15"
+   }
+  },
+  {
+   "entry_id": "0x531efceb9d7c36cad81a2867e3ad5f7f3028635a9500081bec6b43bd86b0e747",
+   "cid": "bafkreibfhfot6p3qpb5em7z537k5rb3tymgvfousznhua4ls5i5o6iwcqy",
+   "tx": "0x2e7df1a68a643404b860cc66017c23026c06d3ab6e7d55fbac6e59fbda34aba6",
+   "block": 12032517,
+   "author": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "verified": true,
+   "tier": 0,
+   "supported": 0,
+   "contradicted": 1,
+   "supersedes": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "created_at": 1793433840000,
+   "blob": {
+    "agent_address": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "agent_id": "agentA",
+    "changelog": [
+     "every successful get must restart the item's ttl, so items that are read stay alive"
+    ],
+    "created_at": 1793433788,
+    "critique": {
+     "findings": [],
+     "model": "none"
+    },
+    "failure_pattern": "Planted on purpose to test self-correction. The score gain is real, this explanation of it is not.",
+    "from_version": "V1",
+    "harness": {
+     "image_digest": null,
+     "test_suite_hash": "0x719c6e004bfd6665f7e0e4f582b73a605f864890ed72466d7914f95a73b51903"
+    },
+    "hypothesis": "every successful get must restart the item's ttl, so items that are read stay alive",
+    "kind": "improvement",
+    "models": {
+     "critic": "planted",
+     "generator": "planted",
+     "temperature": 0
+    },
+    "parent_cid": null,
+    "planted": true,
+    "schema": "autoevolve.memory.v1",
+    "score_hash_new": "0x043edb5bcac48da7c6c7e4b6e8d27ac8f972c3f7181efeb5e8108f56aba6dd3a",
+    "score_hash_old": "0x189278440055dc01a2c3f441ae1d989408735851228b6ae51d49266032b3ba74",
+    "scores": {
+     "new": [
+      100,
+      100,
+      100,
+      90
+     ],
+     "old": [
+      100,
+      75,
+      100,
+      60
+     ]
+    },
+    "supersedes": null,
+    "system_prompt_hash": "0x6c0539c963dac947abd49ae1032fe6a810cd6a6e1cc4ed2c5e1398e346379531",
+    "task_signature": "ttl-cache",
+    "to_version": "V2",
+    "weights_version": "w-40-30-15-15"
+   }
+  }
+ ],
+ "balances": {
+  "authors": [
+   {
+    "address": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "wei": "13999999643624679"
+   },
+   {
+    "address": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "wei": "16999999166564274"
+   }
+  ],
+  "escrow": {
+   "address": "0xaE091221A5B143e9aC0E76989Cc052D3708d1F31",
+   "wei": "9000000000000000"
+  }
+ }
+}

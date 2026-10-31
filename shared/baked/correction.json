@@ -1,0 +1,33 @@
+{
+ "task_signature": "ttl-cache",
+ "entry_id": "0x531efceb9d7c36cad81a2867e3ad5f7f3028635a9500081bec6b43bd86b0e747",
+ "lesson": "ttl-cache: every successful get must restart the item's ttl, so items that are read stay alive",
+ "test": "test_read_does_not_extend_life",
+ "trials": 5,
+ "failed_without": 0,
+ "failed_with": 4,
+ "other_failures": {
+  "without": {
+   "test_capacity_zero_put_is_a_noop": 5,
+   "test_negative_capacity_rejected": 5,
+   "test_non_positive_ttl_rejected": 5
+  },
+  "with": {
+   "test_capacity_zero_put_is_a_noop": 4,
+   "test_negative_capacity_rejected": 5,
+   "test_non_positive_ttl_rejected": 5,
+   "test_read_does_not_change_eviction_order": 5,
+   "test_read_does_not_extend_life": 4,
+   "test_expiry_boundary_is_expired": 1
+  }
+ },
+ "verdict": "contradicted",
+ "evidence": {
+  "tx": "0x4421fe9585c6e1fd1974066b929405dc72f5432b5a790323b9662c5037c83229",
+  "block": 12032531
+ },
+ "disputed": true,
+ "confidence_after": 0.0,
+ "still_recommended": false,
+ "failed_after_correction": 0
+}

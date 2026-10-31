@@ -1,0 +1,11 @@
+[
+  {
+    "entry_id": "0x753b642ff99b130e2c0fd2d2fe90209bd62685dea7ec576df37b5cfa92b13d00",
+    "cid": "baked-3f26e8fc3ac981248796da44b69a06e1",
+    "task_signature": "lru-cache",
+    "kind": "improvement",
+    "tier": "Candidate",
+    "confidence": 0.5,
+    "summary": "lru-cache: Added validation in `__init__` to raise `ValueError` if `capacity` is negative.; Modified `put()` to skip storage and eviction if `capacity` is zero.; Modified `put()` to remove existing keys without calling the eviction callback when `capacity` is zero."
+  }
+]

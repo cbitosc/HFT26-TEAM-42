@@ -1,0 +1,7 @@
+{
+  "chainId": 11155111,
+  "deployBlock": 12028399,
+  "escrow": "0xaE091221A5B143e9aC0E76989Cc052D3708d1F31",
+  "registry": "0xbF8abaCe162FA3Db70B4C9cb03e03d5B094344B1",
+  "verifier": "0x83D106D8e5224DCd5Da23Ed2367bcc73723B35d2"
+}

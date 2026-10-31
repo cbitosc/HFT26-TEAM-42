@@ -1,0 +1,5 @@
+# Deploys run from the repo root because the dashboard imports from shared/.
+# Allowlist those two folders so .env, zk-keys.tar.gz and the rest stay local.
+/*
+!/dashboard
+!/shared

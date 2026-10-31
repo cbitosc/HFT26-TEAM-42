@@ -1,0 +1,147 @@
+{
+ "task_signature": "ttl-cache",
+ "trials": 5,
+ "off": {
+  "vectors": [
+   [
+    100,
+    75,
+    100,
+    75
+   ],
+   [
+    20,
+    8,
+    0,
+    30
+   ],
+   [
+    100,
+    75,
+    100,
+    80
+   ],
+   [
+    100,
+    75,
+    60,
+    60
+   ],
+   [
+    100,
+    75,
+    20,
+    65
+   ]
+  ],
+  "totals": [
+   8875,
+   1490,
+   8950,
+   8050,
+   7525
+  ],
+  "mean_vector": [
+   84,
+   62,
+   56,
+   62
+  ],
+  "mean_total": 6978,
+  "test_failures": {
+   "test_capacity_zero_put_is_a_noop": 4,
+   "test_negative_capacity_rejected": 5,
+   "test_non_positive_ttl_rejected": 5,
+   "test_evicts_oldest_write": 1,
+   "test_item_expires": 1,
+   "test_len_tracks_items": 1,
+   "test_put_then_get": 1,
+   "test_expired_items_do_not_cause_live_eviction": 1,
+   "test_expiry_boundary_is_expired": 1,
+   "test_len_excludes_expired_without_reads": 1,
+   "test_none_value_is_stored": 1,
+   "test_read_does_not_change_eviction_order": 1,
+   "test_read_does_not_extend_life": 1,
+   "test_rewrite_at_capacity_does_not_evict": 1,
+   "test_rewrite_moves_item_to_newest": 1,
+   "test_rewrite_resets_expiry": 1
+  }
+ },
+ "on": {
+  "vectors": [
+   [
+    100,
+    83,
+    100,
+    90
+   ],
+   [
+    100,
+    83,
+    100,
+    100
+   ],
+   [
+    100,
+    83,
+    100,
+    94
+   ],
+   [
+    100,
+    83,
+    100,
+    100
+   ],
+   [
+    100,
+    83,
+    100,
+    95
+   ]
+  ],
+  "totals": [
+   9340,
+   9490,
+   9400,
+   9490,
+   9415
+  ],
+  "mean_vector": [
+   100,
+   83,
+   100,
+   96
+  ],
+  "mean_total": 9427,
+  "test_failures": {
+   "test_expiry_boundary_is_expired": 5,
+   "test_non_positive_ttl_rejected": 5
+  }
+ },
+ "proven": {
+  "trial": 4,
+  "off": [
+   100,
+   75,
+   60,
+   60
+  ],
+  "on": [
+   100,
+   83,
+   100,
+   100
+  ],
+  "off_total": 8050,
+  "on_total": 9490,
+  "delta": 1440,
+  "tx": "0x491fca31895519107923db7c8fd967ceef1bd85e4b6eb397b19ccab632f776bc",
+  "block": 12029091,
+  "entry_id": "0xab581b733a56909f56cd2827da58ef476215be759ec7d0c4fc3ab8acc6892a2d"
+ },
+ "inherited": [
+  "0x753b642ff99b130e2c0fd2d2fe90209bd62685dea7ec576df37b5cfa92b13d00"
+ ],
+ "confidence": []
+}

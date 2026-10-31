@@ -1,0 +1,2515 @@
+{
+ "runs": [
+  {
+   "id": "real-a",
+   "title": "Agent A, lru-cache",
+   "task": "lru-cache",
+   "agent": "agentA",
+   "provenance": "replay",
+   "findings": {
+    "V1": [
+     {
+      "issue": "The constructor does not validate the capacity. Negative capacities are accepted, leading to undefined behavior. The harness test 'test_negative_capacity_rejected' fails due to this.",
+      "severity": "high",
+      "suggested_fix": "Add capacity validation in __init__: if capacity < 0, raise ValueError(\"Capacity must be non-negative\")."
+     },
+     {
+      "issue": "The test 'test_capacity_zero_never_fires_on_evict' fails. The cache with capacity zero should immediately evict items on put, but the test expects no on_evict calls. This suggests a potential misunderstanding of requirements or test flaw, though the current implementation aligns with the spec for eviction.",
+      "severity": "medium",
+      "suggested_fix": "Reevaluate test requirements. If the test is correct, ensure on_evict is never called for capacity zero (contradicting the spec). However, the current behavior of calling on_evict during eviction is correct per the provided specification."
+     }
+    ],
+    "V2": [
+     {
+      "issue": "The on_evict callback is not called when capacity is 0 and an item is evicted due to the condition `self.capacity > 0`.",
+      "severity": "high",
+      "suggested_fix": "Remove the `self.capacity > 0` check when calling on_evict. Change the line to: `if self.on_evict:`"
+     }
+    ]
+   },
+   "models": {
+    "critic": "deepseek-ai/DeepSeek-R1-0528",
+    "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "temperature": 0
+   },
+   "events": [
+    {
+     "ts": 1793393759218,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "run.started",
+     "data": {
+      "task_signature": "lru-cache",
+      "memory_enabled": false
+     }
+    },
+    {
+     "ts": 1793393759815,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n1",
+      "parent_id": null,
+      "role": "generate",
+      "version": "V1",
+      "label": "Generate V1"
+     }
+    },
+    {
+     "ts": 1793393760404,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n1",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793393783023,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n1",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793393784854,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n2",
+      "parent_id": "n1",
+      "role": "score",
+      "version": "V1",
+      "label": "Score V1"
+     }
+    },
+    {
+     "ts": 1793393787119,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n2",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793393789649,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n2",
+      "status": "done",
+      "scores": [
+       100,
+       83,
+       100,
+       0
+      ]
+     }
+    },
+    {
+     "ts": 1793393792922,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n3",
+      "parent_id": "n2",
+      "role": "critique",
+      "version": "V1",
+      "label": "Critique V1"
+     }
+    },
+    {
+     "ts": 1793393795390,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n3",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793393907118,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n3",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793393908655,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n2",
+      "status": "done",
+      "scores": [
+       100,
+       83,
+       100,
+       94
+      ],
+      "total": 9400
+     }
+    },
+    {
+     "ts": 1793393910161,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n4",
+      "parent_id": "n3",
+      "role": "revise",
+      "version": "V2",
+      "label": "Revise to V2"
+     }
+    },
+    {
+     "ts": 1793393911665,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n4",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793393918801,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n4",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793393919921,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n5",
+      "parent_id": "n4",
+      "role": "score",
+      "version": "V2",
+      "label": "Score V2"
+     }
+    },
+    {
+     "ts": 1793393921384,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n5",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793393923177,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n5",
+      "status": "done",
+      "scores": [
+       100,
+       100,
+       100,
+       0
+      ]
+     }
+    },
+    {
+     "ts": 1793393924426,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n6",
+      "parent_id": "n5",
+      "role": "critique",
+      "version": "V2",
+      "label": "Critique V2"
+     }
+    },
+    {
+     "ts": 1793393925856,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n6",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793393983170,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n6",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793393984552,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n5",
+      "status": "done",
+      "scores": [
+       100,
+       100,
+       100,
+       90
+      ],
+      "total": 9850
+     }
+    },
+    {
+     "ts": 1793393992291,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "diff.ready",
+     "data": {
+      "from": "V1",
+      "to": "V2",
+      "unified_diff": "--- V1\n+++ V2\n@@ -2,6 +2,8 @@\n \n class LRUCache:\n     def __init__(self, capacity, on_evict=None):\n+        if capacity < 0:\n+            raise ValueError(\"Capacity must be non-negative\")\n         self.capacity = capacity\n         self.on_evict = on_evict\n         self.cache = OrderedDict()\n@@ -12,7 +14,7 @@\n         self.cache[key] = value\n         if len(self.cache) > self.capacity:\n             oldest_key, oldest_value = self.cache.popitem(last=False)\n-            if self.on_evict:\n+            if self.on_evict and self.capacity > 0:\n                 self.on_evict(oldest_key, oldest_value)\n \n     def get(self, key, default=None):\n",
+      "changelog": [
+       "Added capacity validation in `__init__` to raise `ValueError` for negative capacities.",
+       "Modified the `put` method to call `on_evict` only if `capacity` is greater than zero."
+      ]
+     }
+    },
+    {
+     "ts": 1793394065359,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n7",
+      "parent_id": "n6",
+      "role": "prove",
+      "version": "V2",
+      "label": "Prove improvement"
+     }
+    },
+    {
+     "ts": 1793394065877,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n7",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793394066339,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "proof.started",
+     "data": {
+      "from": "V1",
+      "to": "V2"
+     }
+    },
+    {
+     "ts": 1793394071243,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "proof.done",
+     "data": {
+      "from": "V1",
+      "to": "V2",
+      "proof_hash": "0xe7fa41c90e9595ef9fc631862a6500309e387e6f9811eef9b72591ca05ec4e75",
+      "proving_ms": 4243,
+      "verified_locally": true
+     }
+    },
+    {
+     "ts": 1793394072050,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n7",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793394072743,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n8",
+      "parent_id": "n7",
+      "role": "pin",
+      "version": "V2",
+      "label": "Pin memory entry"
+     }
+    },
+    {
+     "ts": 1793394073356,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n8",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793394080613,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n8",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793394081128,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "ipfs.pinned",
+     "data": {
+      "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+      "cid": "bafkreia4dubuxuyegm27uiktpxmmzsofx6kxavlgnm4k4gh5wmnljrg4ji",
+      "gateway_url": null
+     }
+    },
+    {
+     "ts": 1793394081700,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n9",
+      "parent_id": "n8",
+      "role": "submit",
+      "version": "V2",
+      "label": "Submit on-chain"
+     }
+    },
+    {
+     "ts": 1793394082349,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n9",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793394083006,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "chain.tx",
+     "data": {
+      "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+      "tx": null,
+      "status": "pending",
+      "etherscan_url": null
+     }
+    },
+    {
+     "ts": 1793394108277,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "chain.tx",
+     "data": {
+      "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+      "tx": "0x8ddcec061ee779f3b337bf559508ebedbab436c6c1bf3360551b8fd85e8cf307",
+      "etherscan_url": "https://sepolia.etherscan.io/tx/0x8ddcec061ee779f3b337bf559508ebedbab436c6c1bf3360551b8fd85e8cf307",
+      "status": "confirmed",
+      "block": 12029225
+     }
+    },
+    {
+     "ts": 1793394109013,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n9",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793394109797,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "chain.verified",
+     "data": {
+      "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+      "verifier_ok": true,
+      "reward_wei": 1000000000000000,
+      "tier": "Candidate"
+     }
+    },
+    {
+     "ts": 1793394110515,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n10",
+      "parent_id": "n6",
+      "role": "revise",
+      "version": "V3",
+      "label": "Revise to V3"
+     }
+    },
+    {
+     "ts": 1793394111258,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n10",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793394128240,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n10",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793394128949,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n11",
+      "parent_id": "n10",
+      "role": "score",
+      "version": "V3",
+      "label": "Score V3"
+     }
+    },
+    {
+     "ts": 1793394129592,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n11",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793394131026,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n11",
+      "status": "done",
+      "scores": [
+       100,
+       92,
+       100,
+       0
+      ]
+     }
+    },
+    {
+     "ts": 1793394131713,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n12",
+      "parent_id": "n11",
+      "role": "critique",
+      "version": "V3",
+      "label": "Critique V3"
+     }
+    },
+    {
+     "ts": 1793394132321,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n12",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793394268269,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n12",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793394268770,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n11",
+      "status": "done",
+      "scores": [
+       100,
+       92,
+       100,
+       92
+      ],
+      "total": 9640
+     }
+    },
+    {
+     "ts": 1793394283492,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "diff.ready",
+     "data": {
+      "from": "V2",
+      "to": "V3",
+      "unified_diff": "--- V2\n+++ V3\n@@ -14,7 +14,7 @@\n         self.cache[key] = value\n         if len(self.cache) > self.capacity:\n             oldest_key, oldest_value = self.cache.popitem(last=False)\n-            if self.on_evict and self.capacity > 0:\n+            if self.on_evict:\n                 self.on_evict(oldest_key, oldest_value)\n \n     def get(self, key, default=None):\n",
+      "changelog": [
+       "Removed the `self.capacity > 0` check in the `on_evict` callback invocation.",
+       "Ensured `on_evict` is called whenever an item is evicted, regardless of cache capacity."
+      ]
+     }
+    },
+    {
+     "ts": 1793394284112,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n13",
+      "parent_id": "n12",
+      "role": "pin",
+      "version": "V3",
+      "label": "Pin memory entry"
+     }
+    },
+    {
+     "ts": 1793394284738,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n13",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793394291376,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n13",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793394291900,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "ipfs.pinned",
+     "data": {
+      "entry_id": "0xce493d58f47e7b8e213c9c7cc9a44e3b9edca26db58ed30b99a8618099500724",
+      "cid": "bafkreicd2xnurllzlelafxcykbl4k5o3v2d5ztxprem4i6miqrsi7hka2y",
+      "gateway_url": null
+     }
+    },
+    {
+     "ts": 1793394292428,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.created",
+     "data": {
+      "node_id": "n14",
+      "parent_id": "n13",
+      "role": "submit",
+      "version": "V3",
+      "label": "Submit on-chain"
+     }
+    },
+    {
+     "ts": 1793394292991,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n14",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793394312521,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "chain.tx",
+     "data": {
+      "entry_id": "0xce493d58f47e7b8e213c9c7cc9a44e3b9edca26db58ed30b99a8618099500724",
+      "tx": "0xc8e7ff504bf3d72d31e891f7b223ba949335704fd880f7675a2d6b797e6d6824",
+      "etherscan_url": "https://sepolia.etherscan.io/tx/0xc8e7ff504bf3d72d31e891f7b223ba949335704fd880f7675a2d6b797e6d6824",
+      "status": "confirmed",
+      "block": 12029242
+     }
+    },
+    {
+     "ts": 1793394313075,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n14",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793394313631,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "regression.recorded",
+     "data": {
+      "from": "V2",
+      "to": "V3",
+      "reason": "V3 scored 9640, not above V2 at 9850",
+      "entry_id": "0xce493d58f47e7b8e213c9c7cc9a44e3b9edca26db58ed30b99a8618099500724"
+     }
+    },
+    {
+     "ts": 1793394314212,
+     "run_id": "real-a",
+     "agent_id": "agentA",
+     "type": "run.finished",
+     "data": {
+      "final_version": "V2",
+      "scores_by_version": {
+       "V1": 9400,
+       "V2": 9850,
+       "V3": 9640
+      },
+      "total_gain": 450
+     }
+    }
+   ]
+  },
+  {
+   "id": "real-b",
+   "title": "Agent B, ttl-cache",
+   "task": "ttl-cache",
+   "agent": "agentB",
+   "provenance": "replay",
+   "findings": {
+    "V1": [
+     {
+      "issue": "The eviction policy incorrectly uses the smallest expiry time from the heap instead of the oldest inserted item. This violates the spec requiring eviction of the item written longest ago when over capacity. The failing test 'test_rewrite_moves_item_to_newest' highlights this issue. Additionally, the heap accumulates stale events from updates/evictions, causing unbounded growth and potential long-term inefficiency.",
+      "severity": "high",
+      "suggested_fix": "1. Replace heap-based eviction with OrderedDict's insertion order. For new keys at capacity, evict the first item using `next(iter(self.cache))`. 2. Remove `live_count` and use `len(self.cache)` for live items. 3. In `_remove_expired`, check the current expiry in cache against current time to handle updated keys. 4. Update `put` to only evict for new keys when at capacity after expired removal."
+     }
+    ]
+   },
+   "models": {
+    "critic": "deepseek-ai/DeepSeek-R1-0528",
+    "generator": "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "temperature": 0
+   },
+   "events": [
+    {
+     "ts": 1793395176745,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "run.started",
+     "data": {
+      "task_signature": "ttl-cache",
+      "memory_enabled": true
+     }
+    },
+    {
+     "ts": 1793395193030,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "memory.retrieved",
+     "data": {
+      "entries": [
+       {
+        "entry_id": "0xce493d58f47e7b8e213c9c7cc9a44e3b9edca26db58ed30b99a8618099500724",
+        "cid": "bafkreicd2xnurllzlelafxcykbl4k5o3v2d5ztxprem4i6miqrsi7hka2y",
+        "kind": "regression",
+        "tier": "Candidate",
+        "confidence": 0.5,
+        "summary": "lru-cache: Removed the `self.capacity > 0` check in the `on_evict` callback invocation.; Ensured `on_evict` is called whenever an item is evicted, regardless of cache capacity.",
+        "created_at": 1793394284
+       },
+       {
+        "entry_id": "0x2d78cf7ac97d0ebcc4b5a4b6703061b8b0c340b771f6d1eeb094a4fdcef8804b",
+        "cid": "bafkreicknssvxkvrtsm42bo2rjnsdhm7c4nmvhwblozywku3aku4hpohcy",
+        "kind": "improvement",
+        "tier": "Validated",
+        "confidence": 1,
+        "summary": "lru-cache: Removed `on_evict` callback invocation during key update in `put` method.; Updated key update block to only remove the key from cache without calling `on_evict`.",
+        "created_at": 1793384939
+       },
+       {
+        "entry_id": "0x938968e86bf23d784ff5f453905cb42b3ae02ad0a8b2247bb6367b481d5d2959",
+        "cid": "bafkreihzirf6fbn72fmfhcyyomsu46wmzfwvb4zcvt5tohkqbylz2sl4nm",
+        "kind": "improvement",
+        "tier": "Validated",
+        "confidence": 1,
+        "summary": "lru-cache: Added validation for negative capacity in `__init__` method.; Added handling for zero capacity in `put` method to make it a no-op.; Modified `put` method to call `on_evict` when replacing an existing key.",
+        "created_at": 1793384721
+       },
+       {
+        "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+        "cid": "bafkreia4dubuxuyegm27uiktpxmmzsofx6kxavlgnm4k4gh5wmnljrg4ji",
+        "kind": "improvement",
+        "tier": "Candidate",
+        "confidence": 0.5,
+        "summary": "lru-cache: Added capacity validation in `__init__` to raise `ValueError` for negative capacities.; Modified the `put` method to call `on_evict` only if `capacity` is greater than zero.",
+        "created_at": 1793394065
+       },
+       {
+        "entry_id": "0x698d269e524259c9c8c3f947262def8bb0972b80374c6af86223445ee633c990",
+        "cid": "bafkreidcuv3rkxy6stiqxy4ucbo5o75ipd66horsokgcxq7gkrxnrky2sa",
+        "kind": "improvement",
+        "tier": "Candidate",
+        "confidence": 0.5,
+        "summary": "ttl-cache: Introduced `heapq` for efficient expiration management.; Replaced linear scan with a min-heap in `_remove_expired` method.; Added `expiry_heap` attribute to store expiration times as tuples `(expiry, key)`.",
+        "created_at": 1793388288
+       },
+       {
+        "entry_id": "0x0c5c8fb6c6ac03653d5260a600c23574b5a22add1c93a43ef643cbd42eaeb7ce",
+        "cid": "bafkreiggxhih7jyexu7he4hvgphtji7di6mkqvwkudlox23tphznvycbiy",
+        "kind": "improvement",
+        "tier": "Candidate",
+        "confidence": 0.5,
+        "summary": "ttl-cache: Added input validation for non-negative capacity and positive TTL in `__init__`.; Added `_remove_expired` method to handle expired items cleanup.; Added early return in `put()` if capacity is zero or less.",
+        "created_at": 1793388066
+       },
+       {
+        "entry_id": "0x6338a71a4238682cea244d1963e54380aca5c836502c65da94bda8ea5374e9cd",
+        "cid": "bafkreibonjspyi4vcio66ss3msajuwmrdscfq6ngoke6ymydeb7mi6pxnu",
+        "kind": "improvement",
+        "tier": "Candidate",
+        "confidence": 0.5,
+        "summary": "ttl-cache: Added `live_count` attribute to track the number of live items.; Implemented `_cleanup_expired` method to handle expired items cleanup.; Updated `put` method to call `_cleanup_expired` instead of directly removing expired items.",
+        "created_at": 1793387615
+       },
+       {
+        "entry_id": "0x4665dc3bc761b1f4bc2629efa762f8a470491f9c1b3946276eb1ba845ef3a822",
+        "cid": "bafkreigg7id6l3cyenz4pggzpssjhssmimz5aayhwvclkwdt7ehvxzs37u",
+        "kind": "improvement",
+        "tier": "Candidate",
+        "confidence": 0.5,
+        "summary": "ttl-cache: Added validation for non-positive TTL values in the constructor.; Implemented removal of expired items before evicting live items in `put()`.; Used `OrderedDict.move_to_end()` for rewrites to maintain proper ordering.",
+        "created_at": 1793387373
+       }
+      ],
+      "token_budget": 800
+     }
+    },
+    {
+     "ts": 1793395193590,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n1",
+      "parent_id": null,
+      "role": "generate",
+      "version": "V1",
+      "label": "Generate V1"
+     }
+    },
+    {
+     "ts": 1793395194169,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n1",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395202968,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n1",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395203452,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n2",
+      "parent_id": "n1",
+      "role": "score",
+      "version": "V1",
+      "label": "Score V1"
+     }
+    },
+    {
+     "ts": 1793395203919,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n2",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395204936,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n2",
+      "status": "done",
+      "scores": [
+       100,
+       92,
+       100,
+       0
+      ]
+     }
+    },
+    {
+     "ts": 1793395205401,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n3",
+      "parent_id": "n2",
+      "role": "critique",
+      "version": "V1",
+      "label": "Critique V1"
+     }
+    },
+    {
+     "ts": 1793395205886,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n3",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395359390,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n3",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395360681,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n2",
+      "status": "done",
+      "scores": [
+       100,
+       92,
+       100,
+       95
+      ],
+      "total": 9685
+     }
+    },
+    {
+     "ts": 1793395362133,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n4",
+      "parent_id": "n3",
+      "role": "revise",
+      "version": "V2",
+      "label": "Revise to V2"
+     }
+    },
+    {
+     "ts": 1793395363561,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n4",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395419138,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n4",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395420422,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n5",
+      "parent_id": "n4",
+      "role": "score",
+      "version": "V2",
+      "label": "Score V2"
+     }
+    },
+    {
+     "ts": 1793395421952,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n5",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395423828,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n5",
+      "status": "done",
+      "scores": [
+       0,
+       0,
+       0,
+       0
+      ]
+     }
+    },
+    {
+     "ts": 1793395425224,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n6",
+      "parent_id": "n5",
+      "role": "critique",
+      "version": "V2",
+      "label": "Critique V2"
+     }
+    },
+    {
+     "ts": 1793395426770,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n6",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395549391,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n6",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395550861,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n5",
+      "status": "done",
+      "scores": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "total": 0
+     }
+    },
+    {
+     "ts": 1793395561182,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "diff.ready",
+     "data": {
+      "from": "V1",
+      "to": "V2",
+      "unified_diff": "--- V1\n+++ V2\n@@ -1,63 +1,6 @@\n import time\n-import heapq\n from collections import OrderedDict\n \n class TTLCache:\n     def __init__(self, capacity, ttl, clock=time.monotonic):\n-        if capacity < 0:\n-            raise ValueError(\"Capacity must be non-negative\")\n-        if ttl <= 0:\n-            raise ValueError(\"TTL must be positive\")\n-        \n-        self.capacity = capacity\n-        self.ttl = ttl\n-        self.clock = clock\n-        self.cache = OrderedDict()\n-        self.expiry_heap = []\n-        self.live_count = 0\n-\n-    def _remove_expired(self):\n-        current_time = self.clock()\n-        while self.expiry_heap and self.expiry_heap[0][0] <= current_time:\n-            expiry, key = heapq.heappop(self.expiry_heap)\n-            if key in self.cache and self.cache[key][1] <= current_time:\n-                del self.cache[key]\n-                self.live_count -= 1\n-\n-    def put(self, key, value):\n-        if self.capacity == 0:\n-            return\n-        \n-        self._remove_expired()\n-        \n-        current_time = self.clock()\n-        if key in self.cache:\n-            del self.cache[key]\n-            self.live_count -= 1\n-        \n-        if len(self.cache) >= self.capacity:\n-            _, oldest_key = self.expiry_heap[0]\n-            del self.cache[oldest_key]\n-            heapq.heappop(self.expiry_heap)\n-            self.live_count -= 1\n-        \n-        expiry = current_time + self.ttl\n-        self.cache[key] = (value, expiry)\n-        heapq.heappush(self.expiry_heap, (expiry, key))\n-        self.live_count += 1\n-\n-    def get(self, key, default=None):\n-        self._remove_expired()\n-        current_time = self.clock()\n-        if key in self.cache and self.cache[key][1] > current_time:\n-            return self.cache[key][0]\n-        return default\n-\n-    def __contains__(self, key):\n-        self._remove_expired()\n-        current_time = self.clock()\n-        return key in self.cache and self.cache[key][1] > current_time\n-\n-    def __len__(self):\n-        self._remove_expired()\n-        return self.live_count\n+        if capacity < 0!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+      "changelog": [
+       "Removed `heapq` import and replaced it with `OrderedDict` for maintaining insertion order.",
+       "Replaced heap-based eviction with `OrderedDict` to evict the oldest inserted item when over capacity.",
+       "Removed `live_count` and used `len(self.cache)` to determine the number of live items.",
+       "Updated `_remove_expired` to check the current expiry time in the cache against the current time to handle updated keys.",
+       "Modified `put` to only evict for new keys when at capacity after removing expired items.",
+       "Simplified the `__init__` method by removing unnecessary checks and initializations related to the heap and `live_count`.",
+       "Removed redundant and incorrect code from the `put` method.",
+       "Simplified the `get` method by removing unnecessary checks and initializations related to the heap and `live_count`."
+      ]
+     }
+    },
+    {
+     "ts": 1793395608116,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n7",
+      "parent_id": "n6",
+      "role": "pin",
+      "version": "V2",
+      "label": "Pin memory entry"
+     }
+    },
+    {
+     "ts": 1793395609633,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n7",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395617056,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n7",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395618251,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "ipfs.pinned",
+     "data": {
+      "entry_id": "0x51ab2e29eba05a8f8eecc58d8de3625f6e83a2dc202782966ab8104b2f60bbe7",
+      "cid": "bafkreih3txkuff5ilrmgv2hrsmdedqn5eclbswd7a376v5cxuk4n4ugnuq",
+      "gateway_url": null
+     }
+    },
+    {
+     "ts": 1793395619714,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n8",
+      "parent_id": "n7",
+      "role": "submit",
+      "version": "V2",
+      "label": "Submit on-chain"
+     }
+    },
+    {
+     "ts": 1793395621265,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n8",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395632561,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "chain.tx",
+     "data": {
+      "entry_id": "0x51ab2e29eba05a8f8eecc58d8de3625f6e83a2dc202782966ab8104b2f60bbe7",
+      "tx": "0x944704f9ff3e7634feaa428c5863078e14cc1ab4552bffdb691cff7ab96ac307",
+      "etherscan_url": "https://sepolia.etherscan.io/tx/0x944704f9ff3e7634feaa428c5863078e14cc1ab4552bffdb691cff7ab96ac307",
+      "status": "confirmed",
+      "block": 12029351
+     }
+    },
+    {
+     "ts": 1793395633880,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n8",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395635132,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "regression.recorded",
+     "data": {
+      "from": "V1",
+      "to": "V2",
+      "reason": "V2 scored 0, not above V1 at 9685",
+      "entry_id": "0x51ab2e29eba05a8f8eecc58d8de3625f6e83a2dc202782966ab8104b2f60bbe7"
+     }
+    },
+    {
+     "ts": 1793395636574,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n9",
+      "parent_id": "n3",
+      "role": "revise",
+      "version": "V3",
+      "label": "Revise to V3"
+     }
+    },
+    {
+     "ts": 1793395637999,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n9",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395653259,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n9",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395654498,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n10",
+      "parent_id": "n9",
+      "role": "score",
+      "version": "V3",
+      "label": "Score V3"
+     }
+    },
+    {
+     "ts": 1793395655926,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n10",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395657938,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n10",
+      "status": "done",
+      "scores": [
+       100,
+       100,
+       100,
+       0
+      ]
+     }
+    },
+    {
+     "ts": 1793395659185,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n11",
+      "parent_id": "n10",
+      "role": "critique",
+      "version": "V3",
+      "label": "Critique V3"
+     }
+    },
+    {
+     "ts": 1793395660667,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n11",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395733412,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n11",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395734720,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n10",
+      "status": "done",
+      "scores": [
+       100,
+       100,
+       100,
+       100
+      ],
+      "total": 10000
+     }
+    },
+    {
+     "ts": 1793395751442,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "diff.ready",
+     "data": {
+      "from": "V1",
+      "to": "V3",
+      "unified_diff": "--- V1\n+++ V3\n@@ -1,5 +1,4 @@\n import time\n-import heapq\n from collections import OrderedDict\n \n class TTLCache:\n@@ -13,16 +12,17 @@\n         self.ttl = ttl\n         self.clock = clock\n         self.cache = OrderedDict()\n-        self.expiry_heap = []\n-        self.live_count = 0\n \n     def _remove_expired(self):\n         current_time = self.clock()\n-        while self.expiry_heap and self.expiry_heap[0][0] <= current_time:\n-            expiry, key = heapq.heappop(self.expiry_heap)\n-            if key in self.cache and self.cache[key][1] <= current_time:\n-                del self.cache[key]\n-                self.live_count -= 1\n+        to_remove = []\n+        for key, (value, expiry) in self.cache.items():\n+            if expiry <= current_time:\n+                to_remove.append(key)\n+            else:\n+                break\n+        for key in to_remove:\n+            del self.cache[key]\n \n     def put(self, key, value):\n         if self.capacity == 0:\n@@ -33,18 +33,13 @@\n         current_time = self.clock()\n         if key in self.cache:\n             del self.cache[key]\n-            self.live_count -= 1\n         \n         if len(self.cache) >= self.capacity:\n-            _, oldest_key = self.expiry_heap[0]\n+            oldest_key = next(iter(self.cache))\n             del self.cache[oldest_key]\n-            heapq.heappop(self.expiry_heap)\n-            self.live_count -= 1\n         \n         expiry = current_time + self.ttl\n         self.cache[key] = (value, expiry)\n-        heapq.heappush(self.expiry_heap, (expiry, key))\n-        self.live_count += 1\n \n     def get(self, key, default=None):\n         self._remove_expired()\n@@ -60,4 +55,4 @@\n \n     def __len__(self):\n         self._remove_expired()\n-        return self.live_count\n+        return len(self.cache)\n",
+      "changelog": [
+       "Replaced heap-based eviction with `OrderedDict` for maintaining insertion order.",
+       "Used `next(iter(self.cache))` to evict the oldest inserted item when at capacity.",
+       "Removed `live_count` and used `len(self.cache)` to determine the number of live items.",
+       "Updated `_remove_expired` to check current expiry times directly in the cache.",
+       "Modified `put` to only evict for new keys after removing expired items.",
+       "Simplified `__len__` to return the length of `self.cache` directly."
+      ]
+     }
+    },
+    {
+     "ts": 1793395753332,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n12",
+      "parent_id": "n11",
+      "role": "prove",
+      "version": "V3",
+      "label": "Prove improvement"
+     }
+    },
+    {
+     "ts": 1793395754979,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n12",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395756237,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "proof.started",
+     "data": {
+      "from": "V1",
+      "to": "V3"
+     }
+    },
+    {
+     "ts": 1793395772330,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "proof.done",
+     "data": {
+      "from": "V1",
+      "to": "V3",
+      "proof_hash": "0x3e3498beb41b926cdde2190c24ce14b78956ca27a9be68a75318a913dd38ae35",
+      "proving_ms": 14176,
+      "verified_locally": true
+     }
+    },
+    {
+     "ts": 1793395773598,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n12",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395774966,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n13",
+      "parent_id": "n12",
+      "role": "pin",
+      "version": "V3",
+      "label": "Pin memory entry"
+     }
+    },
+    {
+     "ts": 1793395776459,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n13",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395785023,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n13",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395786391,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "ipfs.pinned",
+     "data": {
+      "entry_id": "0x422afccc8a88aeeecb2c2db1c8a0e13ea1bdbd6d27495ce5a5864823bb8c917f",
+      "cid": "bafkreiaoqcottiigmstto3vhah4wqdpubhfw4b3xhcmmr6z4htvse42lpi",
+      "gateway_url": null
+     }
+    },
+    {
+     "ts": 1793395787890,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.created",
+     "data": {
+      "node_id": "n14",
+      "parent_id": "n13",
+      "role": "submit",
+      "version": "V3",
+      "label": "Submit on-chain"
+     }
+    },
+    {
+     "ts": 1793395789379,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n14",
+      "status": "running"
+     }
+    },
+    {
+     "ts": 1793395790587,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "chain.tx",
+     "data": {
+      "entry_id": "0x422afccc8a88aeeecb2c2db1c8a0e13ea1bdbd6d27495ce5a5864823bb8c917f",
+      "tx": null,
+      "status": "pending",
+      "etherscan_url": null
+     }
+    },
+    {
+     "ts": 1793395801117,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "chain.tx",
+     "data": {
+      "entry_id": "0x422afccc8a88aeeecb2c2db1c8a0e13ea1bdbd6d27495ce5a5864823bb8c917f",
+      "tx": "0xe0792726036ab794c804d909c2e301685356cec7656310302034421db70a394a",
+      "etherscan_url": "https://sepolia.etherscan.io/tx/0xe0792726036ab794c804d909c2e301685356cec7656310302034421db70a394a",
+      "status": "confirmed",
+      "block": 12029365
+     }
+    },
+    {
+     "ts": 1793395802523,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "node.updated",
+     "data": {
+      "node_id": "n14",
+      "status": "done"
+     }
+    },
+    {
+     "ts": 1793395803975,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "chain.verified",
+     "data": {
+      "entry_id": "0x422afccc8a88aeeecb2c2db1c8a0e13ea1bdbd6d27495ce5a5864823bb8c917f",
+      "verifier_ok": true,
+      "reward_wei": 1000000000000000,
+      "tier": "Candidate"
+     }
+    },
+    {
+     "ts": 1793395908286,
+     "run_id": "real-b",
+     "agent_id": "agentB",
+     "type": "run.finished",
+     "data": {
+      "final_version": "V3",
+      "scores_by_version": {
+       "V1": 9685,
+       "V2": 0,
+       "V3": 10000
+      },
+      "total_gain": 315
+     }
+    }
+   ]
+  }
+ ],
+ "memory": [
+  {
+   "entry_id": "0x938968e86bf23d784ff5f453905cb42b3ae02ad0a8b2247bb6367b481d5d2959",
+   "cid": "bafkreihzirf6fbn72fmfhcyyomsu46wmzfwvb4zcvt5tohkqbylz2sl4nm",
+   "tx": "0xb9b6b5a1140088d07d4e440339ddee10100ee734a24d2efe869e4cf8c3c8f73c",
+   "origin": "rehearsal",
+   "author": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "agent_id": "agentA",
+   "task_signature": "lru-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "Added validation for negative capacity in `__init__` method.",
+   "failure_pattern": "Negative capacity not validated, allowing invalid cache creation",
+   "fix_summary": "Added validation for negative capacity in `__init__` method.; Added handling for zero capacity in `put` method to make it a no-op.; Modified `put` method to call `on_evict` when replacing an existing key.",
+   "scores": {
+    "new": [
+     100,
+     92,
+     100,
+     95
+    ],
+    "old": [
+     100,
+     75,
+     100,
+     92
+    ]
+   },
+   "tier": "validated",
+   "confidence": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793384772000,
+   "evidence": [
+    {
+     "ts": 1793387676000,
+     "reporter": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+     "supported": true,
+     "tx": "0x4cf5baabb28962b98706acd96237978a94cdeba6133c0afa56869bc030e651fe",
+     "note": "Reported by Agent B after a run that inherited this entry."
+    }
+   ],
+   "promotions": [
+    {
+     "ts": 1793384772000,
+     "tier": "candidate"
+    },
+    {
+     "ts": 1793387676000,
+     "tier": "validated"
+    }
+   ]
+  },
+  {
+   "entry_id": "0x2d78cf7ac97d0ebcc4b5a4b6703061b8b0c340b771f6d1eeb094a4fdcef8804b",
+   "cid": "bafkreicknssvxkvrtsm42bo2rjnsdhm7c4nmvhwblozywku3aku4hpohcy",
+   "tx": "0x3c71746b290581e6c35ea8a59e6ea91e0edb8504cdc13cf567df44a8f20afbd2",
+   "origin": "rehearsal",
+   "author": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "agent_id": "agentA",
+   "task_signature": "lru-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "Removed `on_evict` callback invocation during key update in `put` method.",
+   "failure_pattern": "The `put` method incorrectly triggers the `on_evict` callback when updating an existing key. This violates the specification that `on_evict` should only be called for evicted items due to capacity constraints.",
+   "fix_summary": "Removed `on_evict` callback invocation during key update in `put` method.; Updated key update block to only remove the key from cache without calling `on_evict`.",
+   "scores": {
+    "new": [
+     100,
+     100,
+     100,
+     100
+    ],
+    "old": [
+     100,
+     92,
+     100,
+     95
+    ]
+   },
+   "tier": "validated",
+   "confidence": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793384988000,
+   "evidence": [
+    {
+     "ts": 1793387688000,
+     "reporter": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+     "supported": true,
+     "tx": "0xed1797d47597688c229e81dbd2e1dc32dda76992e01b4e646f1fd02dfa3e1acb",
+     "note": "Reported by Agent B after a run that inherited this entry."
+    }
+   ],
+   "promotions": [
+    {
+     "ts": 1793384988000,
+     "tier": "candidate"
+    },
+    {
+     "ts": 1793387688000,
+     "tier": "validated"
+    }
+   ]
+  },
+  {
+   "entry_id": "0x4665dc3bc761b1f4bc2629efa762f8a470491f9c1b3946276eb1ba845ef3a822",
+   "cid": "bafkreigg7id6l3cyenz4pggzpssjhssmimz5aayhwvclkwdt7ehvxzs37u",
+   "tx": "0x811e48fe3b65aed029abc641c1449b793f3108f53318173f72344af3c9ed8f51",
+   "origin": "rehearsal",
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "agent_id": "agentB",
+   "task_signature": "ttl-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "Added validation for non-positive TTL values in the constructor.",
+   "failure_pattern": "Does not reject non-positive TTL values in constructor",
+   "fix_summary": "Added validation for non-positive TTL values in the constructor.; Implemented removal of expired items before evicting live items in `put()`.; Used `OrderedDict.move_to_end()` for rewrites to maintain proper ordering.",
+   "scores": {
+    "new": [
+     80,
+     83,
+     0,
+     30
+    ],
+    "old": [
+     80,
+     67,
+     0,
+     45
+    ]
+   },
+   "tier": "validated",
+   "confidence": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793387424000,
+   "evidence": [
+    {
+     "ts": 1793395908000,
+     "reporter": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+     "supported": true,
+     "tx": "0x04009ce9cffcebb4161d4c2efe651a850c274dbe2ce8e1f3208a146568dd65ce",
+     "note": "Reported by Agent B after a run that inherited this entry."
+    }
+   ],
+   "promotions": [
+    {
+     "ts": 1793387424000,
+     "tier": "candidate"
+    },
+    {
+     "ts": 1793395908000,
+     "tier": "validated"
+    }
+   ]
+  },
+  {
+   "entry_id": "0x6338a71a4238682cea244d1963e54380aca5c836502c65da94bda8ea5374e9cd",
+   "cid": "bafkreibonjspyi4vcio66ss3msajuwmrdscfq6ngoke6ymydeb7mi6pxnu",
+   "tx": "0xc822a0c82a74de122cee198a90187b4a11d594398d8d05ca33631984db2438fb",
+   "origin": "rehearsal",
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "agent_id": "agentB",
+   "task_signature": "ttl-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "Added `live_count` attribute to track the number of live items.",
+   "failure_pattern": "The cleanup loop in put, __len__, and __contains__ removes keys based on heap expiry times without verifying if the key has been updated (new TTL). This leads to premature removal of live items that were rewritten, violating TTL semantics.",
+   "fix_summary": "Added `live_count` attribute to track the number of live items.; Implemented `_cleanup_expired` method to handle expired items cleanup.; Updated `put` method to call `_cleanup_expired` instead of directly removing expired items.",
+   "scores": {
+    "new": [
+     80,
+     83,
+     0,
+     45
+    ],
+    "old": [
+     80,
+     83,
+     0,
+     30
+    ]
+   },
+   "tier": "validated",
+   "confidence": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793387664000,
+   "evidence": [
+    {
+     "ts": 1793395896000,
+     "reporter": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+     "supported": true,
+     "tx": "0x2e5c1852aada5e9f9c531b18b38a6b626e5e9ee0d3baf38c94b30cf2145eb69c",
+     "note": "Reported by Agent B after a run that inherited this entry."
+    }
+   ],
+   "promotions": [
+    {
+     "ts": 1793387664000,
+     "tier": "candidate"
+    },
+    {
+     "ts": 1793395896000,
+     "tier": "validated"
+    }
+   ]
+  },
+  {
+   "entry_id": "0x0c5c8fb6c6ac03653d5260a600c23574b5a22add1c93a43ef643cbd42eaeb7ce",
+   "cid": "bafkreiggxhih7jyexu7he4hvgphtji7di6mkqvwkudlox23tphznvycbiy",
+   "tx": "0xbc2122d9bd5ee9cff461302973fb57a708c641ed7e6932f9ceb06cae295912ac",
+   "origin": "rehearsal",
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "agent_id": "agentB",
+   "task_signature": "ttl-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "Added input validation for non-negative capacity and positive TTL in `__init__`.",
+   "failure_pattern": "Missing input validation for negative capacity and non-positive TTL values.",
+   "fix_summary": "Added input validation for non-negative capacity and positive TTL in `__init__`.; Added `_remove_expired` method to handle expired items cleanup.; Added early return in `put()` if capacity is zero or less.",
+   "scores": {
+    "new": [
+     80,
+     83,
+     0,
+     35
+    ],
+    "old": [
+     80,
+     50,
+     0,
+     60
+    ]
+   },
+   "tier": "validated",
+   "confidence": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793388120000,
+   "evidence": [
+    {
+     "ts": 1793395872000,
+     "reporter": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+     "supported": true,
+     "tx": "0x2ad9f29565213e2c2418926a81e995b225401fe7b06a847cc743fd9a97cba6cf",
+     "note": "Reported by Agent B after a run that inherited this entry."
+    }
+   ],
+   "promotions": [
+    {
+     "ts": 1793388120000,
+     "tier": "candidate"
+    },
+    {
+     "ts": 1793395872000,
+     "tier": "validated"
+    }
+   ]
+  },
+  {
+   "entry_id": "0x698d269e524259c9c8c3f947262def8bb0972b80374c6af86223445ee633c990",
+   "cid": "bafkreidcuv3rkxy6stiqxy4ucbo5o75ipd66horsokgcxq7gkrxnrky2sa",
+   "tx": "0xa1c971ddacdf45bd82065f2f02e2b85f73c356824acf1f4c341f3e89093c0f59",
+   "origin": "rehearsal",
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "agent_id": "agentB",
+   "task_signature": "ttl-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "Introduced `heapq` for efficient expiration management.",
+   "failure_pattern": "Efficiency is severely impacted by O(n) expiration scans in _remove_expired, called in every operation. This violates the requirement to stay fast at large capacities and causes the efficiency score of 0.",
+   "fix_summary": "Introduced `heapq` for efficient expiration management.; Replaced linear scan with a min-heap in `_remove_expired` method.; Added `expiry_heap` attribute to store expiration times as tuples `(expiry, key)`.",
+   "scores": {
+    "new": [
+     80,
+     83,
+     0,
+     45
+    ],
+    "old": [
+     80,
+     83,
+     0,
+     35
+    ]
+   },
+   "tier": "validated",
+   "confidence": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793388336000,
+   "evidence": [
+    {
+     "ts": 1793395860000,
+     "reporter": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+     "supported": true,
+     "tx": "0x739775932779b6386e2b222f52f9731a5c9804423d8ff0a0c3bb3a441f78e178",
+     "note": "Reported by Agent B after a run that inherited this entry."
+    }
+   ],
+   "promotions": [
+    {
+     "ts": 1793388336000,
+     "tier": "candidate"
+    },
+    {
+     "ts": 1793395860000,
+     "tier": "validated"
+    }
+   ]
+  },
+  {
+   "entry_id": "0x359d426386cda23c1f436fbef3b839a8ff930482989b81a281818a19a46d4064",
+   "cid": "bafkreie66dfds3z63ah33zyyufhvrxbfqxr62pq4khf4ybbumnpoavbr2a",
+   "tx": "0x499b46e96a1c3e3e5f28bee8f809d0759241a1966b422c4dc1de5a3a740f29de",
+   "origin": "attestation",
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "agent_id": "agentB",
+   "task_signature": "ttl-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "Inherited memory improves Agent B's first attempt on a sibling task",
+   "failure_pattern": "Median paired trial: V1 scored 9100 without memory, 9265 with it",
+   "fix_summary": "Median paired trial: V1 scored 9100 without memory, 9265 with it",
+   "scores": {
+    "new": [
+     100,
+     83,
+     100,
+     85
+    ],
+    "old": [
+     100,
+     75,
+     100,
+     90
+    ]
+   },
+   "tier": "candidate",
+   "confidence": 0.5,
+   "supported": 0,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793389212000,
+   "evidence": [],
+   "promotions": [
+    {
+     "ts": 1793389212000,
+     "tier": "candidate"
+    }
+   ]
+  },
+  {
+   "entry_id": "0xab581b733a56909f56cd2827da58ef476215be759ec7d0c4fc3ab8acc6892a2d",
+   "cid": "bafkreie52upvqoau2wuyt6bxja2k3kkcwnta6efzcsobfrvmy2lbe4r3de",
+   "tx": "0x491fca31895519107923db7c8fd967ceef1bd85e4b6eb397b19ccab632f776bc",
+   "origin": "attestation",
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "agent_id": "agentB",
+   "task_signature": "ttl-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "Median of 5 paired trials: V1 scored 8050 without memory, 9490 with it",
+   "failure_pattern": "Edge cases missed when starting without inherited memory",
+   "fix_summary": "Median of 5 paired trials: V1 scored 8050 without memory, 9490 with it",
+   "scores": {
+    "new": [
+     100,
+     83,
+     100,
+     100
+    ],
+    "old": [
+     100,
+     75,
+     60,
+     60
+    ]
+   },
+   "tier": "candidate",
+   "confidence": 0.5,
+   "supported": 0,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793392488000,
+   "evidence": [],
+   "promotions": [
+    {
+     "ts": 1793392488000,
+     "tier": "candidate"
+    }
+   ]
+  },
+  {
+   "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+   "cid": "bafkreia4dubuxuyegm27uiktpxmmzsofx6kxavlgnm4k4gh5wmnljrg4ji",
+   "tx": "0x8ddcec061ee779f3b337bf559508ebedbab436c6c1bf3360551b8fd85e8cf307",
+   "origin": "run",
+   "author": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "agent_id": "agentA",
+   "task_signature": "lru-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "Added capacity validation in `__init__` to raise `ValueError` for negative capacities.",
+   "failure_pattern": "The constructor does not validate the capacity. Negative capacities are accepted, leading to undefined behavior. The harness test 'test_negative_capacity_rejected' fails due to this.",
+   "fix_summary": "Added capacity validation in `__init__` to raise `ValueError` for negative capacities.; Modified the `put` method to call `on_evict` only if `capacity` is greater than zero.",
+   "scores": {
+    "new": [
+     100,
+     100,
+     100,
+     90
+    ],
+    "old": [
+     100,
+     83,
+     100,
+     94
+    ]
+   },
+   "tier": "validated",
+   "confidence": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793394108000,
+   "evidence": [
+    {
+     "ts": 1793395836000,
+     "reporter": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+     "supported": true,
+     "tx": "0xc5fd5bf110264a2ad61a1b833f1b20bc2ec686fe0129116b040a46c929fc6efb",
+     "note": "Reported by Agent B after a run that inherited this entry."
+    }
+   ],
+   "promotions": [
+    {
+     "ts": 1793394108000,
+     "tier": "candidate"
+    },
+    {
+     "ts": 1793395836000,
+     "tier": "validated"
+    }
+   ]
+  },
+  {
+   "entry_id": "0xce493d58f47e7b8e213c9c7cc9a44e3b9edca26db58ed30b99a8618099500724",
+   "cid": "bafkreicd2xnurllzlelafxcykbl4k5o3v2d5ztxprem4i6miqrsi7hka2y",
+   "tx": "0xc8e7ff504bf3d72d31e891f7b223ba949335704fd880f7675a2d6b797e6d6824",
+   "origin": "run",
+   "author": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "agent_id": "agentA",
+   "task_signature": "lru-cache",
+   "kind": "regression",
+   "verified": false,
+   "hypothesis": "Removed the `self.capacity > 0` check in the `on_evict` callback invocation.",
+   "failure_pattern": "The on_evict callback is not called when capacity is 0 and an item is evicted due to the condition `self.capacity > 0`.",
+   "fix_summary": "Removed the `self.capacity > 0` check in the `on_evict` callback invocation.; Ensured `on_evict` is called whenever an item is evicted, regardless of cache capacity.",
+   "scores": {
+    "new": [
+     100,
+     92,
+     100,
+     92
+    ],
+    "old": [
+     100,
+     100,
+     100,
+     90
+    ]
+   },
+   "tier": "validated",
+   "confidence": 1,
+   "supported": 1,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793394312000,
+   "evidence": [
+    {
+     "ts": 1793395812000,
+     "reporter": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+     "supported": true,
+     "tx": "0xb261589c8574c217d1eb5e5d4a304ce9d72814412baee5b9290835dad380de7e",
+     "note": "Reported by Agent B after a run that inherited this entry."
+    }
+   ],
+   "promotions": [
+    {
+     "ts": 1793394312000,
+     "tier": "candidate"
+    },
+    {
+     "ts": 1793395812000,
+     "tier": "validated"
+    }
+   ]
+  },
+  {
+   "entry_id": "0x51ab2e29eba05a8f8eecc58d8de3625f6e83a2dc202782966ab8104b2f60bbe7",
+   "cid": "bafkreih3txkuff5ilrmgv2hrsmdedqn5eclbswd7a376v5cxuk4n4ugnuq",
+   "tx": "0x944704f9ff3e7634feaa428c5863078e14cc1ab4552bffdb691cff7ab96ac307",
+   "origin": "run",
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "agent_id": "agentB",
+   "task_signature": "ttl-cache",
+   "kind": "regression",
+   "verified": false,
+   "hypothesis": "Removed `heapq` import and replaced it with `OrderedDict` for maintaining insertion order.",
+   "failure_pattern": "The eviction policy incorrectly uses the smallest expiry time from the heap instead of the oldest inserted item. This violates the spec requiring eviction of the item written longest ago when over capacity. The failing test 'test_rewrite_moves_item_to_newest' highlights this issue. Additionally, the heap accumulates stale events from updates/evictions, causing unbounded growth and potential long-term inefficiency.",
+   "fix_summary": "Removed `heapq` import and replaced it with `OrderedDict` for maintaining insertion order.; Replaced heap-based eviction with `OrderedDict` to evict the oldest inserted item when over capacity.; Removed `live_count` and used `len(self.cache)` to determine the number of live items.",
+   "scores": {
+    "new": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "old": [
+     100,
+     92,
+     100,
+     95
+    ]
+   },
+   "tier": "candidate",
+   "confidence": 0.5,
+   "supported": 0,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793395632000,
+   "evidence": [],
+   "promotions": [
+    {
+     "ts": 1793395632000,
+     "tier": "candidate"
+    }
+   ]
+  },
+  {
+   "entry_id": "0x422afccc8a88aeeecb2c2db1c8a0e13ea1bdbd6d27495ce5a5864823bb8c917f",
+   "cid": "bafkreiaoqcottiigmstto3vhah4wqdpubhfw4b3xhcmmr6z4htvse42lpi",
+   "tx": "0xe0792726036ab794c804d909c2e301685356cec7656310302034421db70a394a",
+   "origin": "run",
+   "author": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+   "agent_id": "agentB",
+   "task_signature": "ttl-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "Replaced heap-based eviction with `OrderedDict` for maintaining insertion order.",
+   "failure_pattern": "The eviction policy incorrectly uses the smallest expiry time from the heap instead of the oldest inserted item. This violates the spec requiring eviction of the item written longest ago when over capacity. The failing test 'test_rewrite_moves_item_to_newest' highlights this issue. Additionally, the heap accumulates stale events from updates/evictions, causing unbounded growth and potential long-term inefficiency.",
+   "fix_summary": "Replaced heap-based eviction with `OrderedDict` for maintaining insertion order.; Used `next(iter(self.cache))` to evict the oldest inserted item when at capacity.; Removed `live_count` and used `len(self.cache)` to determine the number of live items.",
+   "scores": {
+    "new": [
+     100,
+     100,
+     100,
+     100
+    ],
+    "old": [
+     100,
+     92,
+     100,
+     95
+    ]
+   },
+   "tier": "candidate",
+   "confidence": 0.5,
+   "supported": 0,
+   "contradicted": 0,
+   "supersedes": null,
+   "created_at": 1793395800000,
+   "evidence": [],
+   "promotions": [
+    {
+     "ts": 1793395800000,
+     "tier": "candidate"
+    }
+   ]
+  },
+  {
+   "entry_id": "0x531efceb9d7c36cad81a2867e3ad5f7f3028635a9500081bec6b43bd86b0e747",
+   "cid": "bafkreibfhfot6p3qpb5em7z537k5rb3tymgvfousznhua4ls5i5o6iwcqy",
+   "tx": "0x2e7df1a68a643404b860cc66017c23026c06d3ab6e7d55fbac6e59fbda34aba6",
+   "origin": "planted",
+   "author": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+   "agent_id": "agentA",
+   "task_signature": "ttl-cache",
+   "kind": "improvement",
+   "verified": true,
+   "hypothesis": "every successful get must restart the item's ttl, so items that are read stay alive",
+   "failure_pattern": "Planted on purpose to test self-correction. The score gain is real, this explanation of it is not.",
+   "fix_summary": "every successful get must restart the item's ttl, so items that are read stay alive",
+   "scores": {
+    "new": [
+     100,
+     100,
+     100,
+     90
+    ],
+    "old": [
+     100,
+     75,
+     100,
+     60
+    ]
+   },
+   "tier": "candidate",
+   "confidence": 0,
+   "supported": 0,
+   "contradicted": 1,
+   "supersedes": null,
+   "created_at": 1793433840000,
+   "evidence": [
+    {
+     "ts": 1793434008000,
+     "reporter": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+     "supported": false,
+     "tx": "0x4421fe9585c6e1fd1974066b929405dc72f5432b5a790323b9662c5037c83229",
+     "note": "Contradicted by Agent B after a controlled run with and without this lesson."
+    }
+   ],
+   "promotions": [
+    {
+     "ts": 1793433840000,
+     "tier": "candidate"
+    }
+   ]
+  }
+ ],
+ "chain": {
+  "exported_at": 1793435073806,
+  "block": 12032617,
+  "log": [
+   {
+    "ts": 1793434008000,
+    "block": 12032531,
+    "entry_id": "0x531efceb9d7c36cad81a2867e3ad5f7f3028635a9500081bec6b43bd86b0e747",
+    "tx": "0x4421fe9585c6e1fd1974066b929405dc72f5432b5a790323b9662c5037c83229",
+    "event": "EvidencePosted",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "supported": false
+   },
+   {
+    "ts": 1793433840000,
+    "block": 12032517,
+    "entry_id": "0x531efceb9d7c36cad81a2867e3ad5f7f3028635a9500081bec6b43bd86b0e747",
+    "tx": "0x2e7df1a68a643404b860cc66017c23026c06d3ab6e7d55fbac6e59fbda34aba6",
+    "event": "RewardPaid",
+    "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793433840000,
+    "block": 12032517,
+    "entry_id": "0x531efceb9d7c36cad81a2867e3ad5f7f3028635a9500081bec6b43bd86b0e747",
+    "tx": "0x2e7df1a68a643404b860cc66017c23026c06d3ab6e7d55fbac6e59fbda34aba6",
+    "event": "ImprovementRecorded",
+    "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "cid": "bafkreibfhfot6p3qpb5em7z537k5rb3tymgvfousznhua4ls5i5o6iwcqy",
+    "verified": true
+   },
+   {
+    "ts": 1793395908000,
+    "block": 12029374,
+    "entry_id": "0x4665dc3bc761b1f4bc2629efa762f8a470491f9c1b3946276eb1ba845ef3a822",
+    "tx": "0x04009ce9cffcebb4161d4c2efe651a850c274dbe2ce8e1f3208a146568dd65ce",
+    "event": "EvidencePosted",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "supported": true
+   },
+   {
+    "ts": 1793395896000,
+    "block": 12029373,
+    "entry_id": "0x6338a71a4238682cea244d1963e54380aca5c836502c65da94bda8ea5374e9cd",
+    "tx": "0x2e5c1852aada5e9f9c531b18b38a6b626e5e9ee0d3baf38c94b30cf2145eb69c",
+    "event": "EvidencePosted",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "supported": true
+   },
+   {
+    "ts": 1793395872000,
+    "block": 12029371,
+    "entry_id": "0x0c5c8fb6c6ac03653d5260a600c23574b5a22add1c93a43ef643cbd42eaeb7ce",
+    "tx": "0x2ad9f29565213e2c2418926a81e995b225401fe7b06a847cc743fd9a97cba6cf",
+    "event": "EvidencePosted",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "supported": true
+   },
+   {
+    "ts": 1793395860000,
+    "block": 12029370,
+    "entry_id": "0x698d269e524259c9c8c3f947262def8bb0972b80374c6af86223445ee633c990",
+    "tx": "0x739775932779b6386e2b222f52f9731a5c9804423d8ff0a0c3bb3a441f78e178",
+    "event": "EvidencePosted",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "supported": true
+   },
+   {
+    "ts": 1793395836000,
+    "block": 12029368,
+    "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+    "tx": "0xc5fd5bf110264a2ad61a1b833f1b20bc2ec686fe0129116b040a46c929fc6efb",
+    "event": "EvidencePosted",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "supported": true
+   },
+   {
+    "ts": 1793395812000,
+    "block": 12029366,
+    "entry_id": "0xce493d58f47e7b8e213c9c7cc9a44e3b9edca26db58ed30b99a8618099500724",
+    "tx": "0xb261589c8574c217d1eb5e5d4a304ce9d72814412baee5b9290835dad380de7e",
+    "event": "EvidencePosted",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "supported": true
+   },
+   {
+    "ts": 1793395800000,
+    "block": 12029365,
+    "entry_id": "0x422afccc8a88aeeecb2c2db1c8a0e13ea1bdbd6d27495ce5a5864823bb8c917f",
+    "tx": "0xe0792726036ab794c804d909c2e301685356cec7656310302034421db70a394a",
+    "event": "RewardPaid",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793395800000,
+    "block": 12029365,
+    "entry_id": "0x422afccc8a88aeeecb2c2db1c8a0e13ea1bdbd6d27495ce5a5864823bb8c917f",
+    "tx": "0xe0792726036ab794c804d909c2e301685356cec7656310302034421db70a394a",
+    "event": "ImprovementRecorded",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "cid": "bafkreiaoqcottiigmstto3vhah4wqdpubhfw4b3xhcmmr6z4htvse42lpi",
+    "verified": true
+   },
+   {
+    "ts": 1793395632000,
+    "block": 12029351,
+    "entry_id": "0x51ab2e29eba05a8f8eecc58d8de3625f6e83a2dc202782966ab8104b2f60bbe7",
+    "tx": "0x944704f9ff3e7634feaa428c5863078e14cc1ab4552bffdb691cff7ab96ac307",
+    "event": "ImprovementRecorded",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "cid": "bafkreih3txkuff5ilrmgv2hrsmdedqn5eclbswd7a376v5cxuk4n4ugnuq",
+    "verified": false
+   },
+   {
+    "ts": 1793394312000,
+    "block": 12029242,
+    "entry_id": "0xce493d58f47e7b8e213c9c7cc9a44e3b9edca26db58ed30b99a8618099500724",
+    "tx": "0xc8e7ff504bf3d72d31e891f7b223ba949335704fd880f7675a2d6b797e6d6824",
+    "event": "ImprovementRecorded",
+    "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "cid": "bafkreicd2xnurllzlelafxcykbl4k5o3v2d5ztxprem4i6miqrsi7hka2y",
+    "verified": false
+   },
+   {
+    "ts": 1793394108000,
+    "block": 12029225,
+    "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+    "tx": "0x8ddcec061ee779f3b337bf559508ebedbab436c6c1bf3360551b8fd85e8cf307",
+    "event": "RewardPaid",
+    "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793394108000,
+    "block": 12029225,
+    "entry_id": "0x3056e586c17c2722695203a936af96f25d59ed74b766679f439dbc4a55ee6001",
+    "tx": "0x8ddcec061ee779f3b337bf559508ebedbab436c6c1bf3360551b8fd85e8cf307",
+    "event": "ImprovementRecorded",
+    "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "cid": "bafkreia4dubuxuyegm27uiktpxmmzsofx6kxavlgnm4k4gh5wmnljrg4ji",
+    "verified": true
+   },
+   {
+    "ts": 1793392488000,
+    "block": 12029091,
+    "entry_id": "0xab581b733a56909f56cd2827da58ef476215be759ec7d0c4fc3ab8acc6892a2d",
+    "tx": "0x491fca31895519107923db7c8fd967ceef1bd85e4b6eb397b19ccab632f776bc",
+    "event": "RewardPaid",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793392488000,
+    "block": 12029091,
+    "entry_id": "0xab581b733a56909f56cd2827da58ef476215be759ec7d0c4fc3ab8acc6892a2d",
+    "tx": "0x491fca31895519107923db7c8fd967ceef1bd85e4b6eb397b19ccab632f776bc",
+    "event": "ImprovementRecorded",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "cid": "bafkreie52upvqoau2wuyt6bxja2k3kkcwnta6efzcsobfrvmy2lbe4r3de",
+    "verified": true
+   },
+   {
+    "ts": 1793389212000,
+    "block": 12028820,
+    "entry_id": "0x359d426386cda23c1f436fbef3b839a8ff930482989b81a281818a19a46d4064",
+    "tx": "0x499b46e96a1c3e3e5f28bee8f809d0759241a1966b422c4dc1de5a3a740f29de",
+    "event": "RewardPaid",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793389212000,
+    "block": 12028820,
+    "entry_id": "0x359d426386cda23c1f436fbef3b839a8ff930482989b81a281818a19a46d4064",
+    "tx": "0x499b46e96a1c3e3e5f28bee8f809d0759241a1966b422c4dc1de5a3a740f29de",
+    "event": "ImprovementRecorded",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "cid": "bafkreie66dfds3z63ah33zyyufhvrxbfqxr62pq4khf4ybbumnpoavbr2a",
+    "verified": true
+   },
+   {
+    "ts": 1793388336000,
+    "block": 12028747,
+    "entry_id": "0x698d269e524259c9c8c3f947262def8bb0972b80374c6af86223445ee633c990",
+    "tx": "0xa1c971ddacdf45bd82065f2f02e2b85f73c356824acf1f4c341f3e89093c0f59",
+    "event": "RewardPaid",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793388336000,
+    "block": 12028747,
+    "entry_id": "0x698d269e524259c9c8c3f947262def8bb0972b80374c6af86223445ee633c990",
+    "tx": "0xa1c971ddacdf45bd82065f2f02e2b85f73c356824acf1f4c341f3e89093c0f59",
+    "event": "ImprovementRecorded",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "cid": "bafkreidcuv3rkxy6stiqxy4ucbo5o75ipd66horsokgcxq7gkrxnrky2sa",
+    "verified": true
+   },
+   {
+    "ts": 1793388120000,
+    "block": 12028729,
+    "entry_id": "0x0c5c8fb6c6ac03653d5260a600c23574b5a22add1c93a43ef643cbd42eaeb7ce",
+    "tx": "0xbc2122d9bd5ee9cff461302973fb57a708c641ed7e6932f9ceb06cae295912ac",
+    "event": "RewardPaid",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793388120000,
+    "block": 12028729,
+    "entry_id": "0x0c5c8fb6c6ac03653d5260a600c23574b5a22add1c93a43ef643cbd42eaeb7ce",
+    "tx": "0xbc2122d9bd5ee9cff461302973fb57a708c641ed7e6932f9ceb06cae295912ac",
+    "event": "ImprovementRecorded",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "cid": "bafkreiggxhih7jyexu7he4hvgphtji7di6mkqvwkudlox23tphznvycbiy",
+    "verified": true
+   },
+   {
+    "ts": 1793387688000,
+    "block": 12028693,
+    "entry_id": "0x2d78cf7ac97d0ebcc4b5a4b6703061b8b0c340b771f6d1eeb094a4fdcef8804b",
+    "tx": "0xed1797d47597688c229e81dbd2e1dc32dda76992e01b4e646f1fd02dfa3e1acb",
+    "event": "EvidencePosted",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "supported": true
+   },
+   {
+    "ts": 1793387676000,
+    "block": 12028692,
+    "entry_id": "0x938968e86bf23d784ff5f453905cb42b3ae02ad0a8b2247bb6367b481d5d2959",
+    "tx": "0x4cf5baabb28962b98706acd96237978a94cdeba6133c0afa56869bc030e651fe",
+    "event": "EvidencePosted",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "supported": true
+   },
+   {
+    "ts": 1793387664000,
+    "block": 12028691,
+    "entry_id": "0x6338a71a4238682cea244d1963e54380aca5c836502c65da94bda8ea5374e9cd",
+    "tx": "0xc822a0c82a74de122cee198a90187b4a11d594398d8d05ca33631984db2438fb",
+    "event": "RewardPaid",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793387664000,
+    "block": 12028691,
+    "entry_id": "0x6338a71a4238682cea244d1963e54380aca5c836502c65da94bda8ea5374e9cd",
+    "tx": "0xc822a0c82a74de122cee198a90187b4a11d594398d8d05ca33631984db2438fb",
+    "event": "ImprovementRecorded",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "cid": "bafkreibonjspyi4vcio66ss3msajuwmrdscfq6ngoke6ymydeb7mi6pxnu",
+    "verified": true
+   },
+   {
+    "ts": 1793387424000,
+    "block": 12028671,
+    "entry_id": "0x4665dc3bc761b1f4bc2629efa762f8a470491f9c1b3946276eb1ba845ef3a822",
+    "tx": "0x811e48fe3b65aed029abc641c1449b793f3108f53318173f72344af3c9ed8f51",
+    "event": "RewardPaid",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793387424000,
+    "block": 12028671,
+    "entry_id": "0x4665dc3bc761b1f4bc2629efa762f8a470491f9c1b3946276eb1ba845ef3a822",
+    "tx": "0x811e48fe3b65aed029abc641c1449b793f3108f53318173f72344af3c9ed8f51",
+    "event": "ImprovementRecorded",
+    "actor": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+    "cid": "bafkreigg7id6l3cyenz4pggzpssjhssmimz5aayhwvclkwdt7ehvxzs37u",
+    "verified": true
+   },
+   {
+    "ts": 1793384988000,
+    "block": 12028471,
+    "entry_id": "0x2d78cf7ac97d0ebcc4b5a4b6703061b8b0c340b771f6d1eeb094a4fdcef8804b",
+    "tx": "0x3c71746b290581e6c35ea8a59e6ea91e0edb8504cdc13cf567df44a8f20afbd2",
+    "event": "RewardPaid",
+    "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793384988000,
+    "block": 12028471,
+    "entry_id": "0x2d78cf7ac97d0ebcc4b5a4b6703061b8b0c340b771f6d1eeb094a4fdcef8804b",
+    "tx": "0x3c71746b290581e6c35ea8a59e6ea91e0edb8504cdc13cf567df44a8f20afbd2",
+    "event": "ImprovementRecorded",
+    "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "cid": "bafkreicknssvxkvrtsm42bo2rjnsdhm7c4nmvhwblozywku3aku4hpohcy",
+    "verified": true
+   },
+   {
+    "ts": 1793384772000,
+    "block": 12028454,
+    "entry_id": "0x938968e86bf23d784ff5f453905cb42b3ae02ad0a8b2247bb6367b481d5d2959",
+    "tx": "0xb9b6b5a1140088d07d4e440339ddee10100ee734a24d2efe869e4cf8c3c8f73c",
+    "event": "RewardPaid",
+    "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "amount_wei": "1000000000000000"
+   },
+   {
+    "ts": 1793384772000,
+    "block": 12028454,
+    "entry_id": "0x938968e86bf23d784ff5f453905cb42b3ae02ad0a8b2247bb6367b481d5d2959",
+    "tx": "0xb9b6b5a1140088d07d4e440339ddee10100ee734a24d2efe869e4cf8c3c8f73c",
+    "event": "ImprovementRecorded",
+    "actor": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+    "cid": "bafkreihzirf6fbn72fmfhcyyomsu46wmzfwvb4zcvt5tohkqbylz2sl4nm",
+    "verified": true
+   }
+  ],
+  "balances": {
+   "agents": [
+    {
+     "label": "Agent A",
+     "address": "0x43E4e256Cc4b05C75826B2E6C3e287845928484D",
+     "wei": "13999999643624679"
+    },
+    {
+     "label": "Agent B",
+     "address": "0xCD4D60fE1BF1a447C40CDa4a06667748B94C4BCD",
+     "wei": "16999999166564274"
+    }
+   ],
+   "escrow": {
+    "address": "0xaE091221A5B143e9aC0E76989Cc052D3708d1F31",
+    "wei": "9000000000000000"
+   },
+   "total_paid_wei": "11000000000000000"
+  }
+ }
+}

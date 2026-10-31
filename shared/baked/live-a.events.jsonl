@@ -1,0 +1,41 @@
+{"ts": 1793383434201, "run_id": "live-a", "agent_id": "agentA", "type": "run.started", "data": {"task_signature": "lru-cache", "memory_enabled": false}}
+{"ts": 1793383434201, "run_id": "live-a", "agent_id": "agentA", "type": "node.created", "data": {"node_id": "n1", "parent_id": null, "role": "generate", "version": "V1", "label": "Generate V1"}}
+{"ts": 1793383434202, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n1", "status": "running"}}
+{"ts": 1793383455199, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n1", "status": "done"}}
+{"ts": 1793383455201, "run_id": "live-a", "agent_id": "agentA", "type": "node.created", "data": {"node_id": "n2", "parent_id": "n1", "role": "score", "version": "V1", "label": "Score V1"}}
+{"ts": 1793383455202, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n2", "status": "running"}}
+{"ts": 1793383455694, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n2", "status": "done", "scores": [100, 75, 100, 0]}}
+{"ts": 1793383455695, "run_id": "live-a", "agent_id": "agentA", "type": "node.created", "data": {"node_id": "n3", "parent_id": "n2", "role": "critique", "version": "V1", "label": "Critique V1"}}
+{"ts": 1793383455699, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n3", "status": "running"}}
+{"ts": 1793383569696, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n3", "status": "done"}}
+{"ts": 1793383569697, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n2", "status": "done", "scores": [100, 75, 100, 100], "total": 9250}}
+{"ts": 1793383569698, "run_id": "live-a", "agent_id": "agentA", "type": "node.created", "data": {"node_id": "n4", "parent_id": "n3", "role": "revise", "version": "V2", "label": "Revise to V2"}}
+{"ts": 1793383569699, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n4", "status": "running"}}
+{"ts": 1793383577121, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n4", "status": "done"}}
+{"ts": 1793383577122, "run_id": "live-a", "agent_id": "agentA", "type": "node.created", "data": {"node_id": "n5", "parent_id": "n4", "role": "score", "version": "V2", "label": "Score V2"}}
+{"ts": 1793383577123, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n5", "status": "running"}}
+{"ts": 1793383577541, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n5", "status": "done", "scores": [100, 100, 100, 0]}}
+{"ts": 1793383577542, "run_id": "live-a", "agent_id": "agentA", "type": "node.created", "data": {"node_id": "n6", "parent_id": "n5", "role": "critique", "version": "V2", "label": "Critique V2"}}
+{"ts": 1793383577544, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n6", "status": "running"}}
+{"ts": 1793383633523, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n6", "status": "done"}}
+{"ts": 1793383633525, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n5", "status": "done", "scores": [100, 100, 100, 100], "total": 10000}}
+{"ts": 1793383638587, "run_id": "live-a", "agent_id": "agentA", "type": "diff.ready", "data": {"from": "V1", "to": "V2", "unified_diff": "--- V1\n+++ V2\n@@ -2,11 +2,15 @@\n \n class LRUCache:\n     def __init__(self, capacity, on_evict=None):\n+        if capacity < 0:\n+            raise ValueError(\"Capacity must be non-negative\")\n         self.capacity = capacity\n         self.on_evict = on_evict\n         self.cache = OrderedDict()\n \n     def put(self, key, value):\n+        if self.capacity == 0:\n+            return\n         if key in self.cache:\n             del self.cache[key]\n         elif len(self.cache) >= self.capacity:\n", "changelog": ["Added validation in `__init__` to raise `ValueError` if `capacity` is negative.", "Modified `put()` to skip storage and eviction if `capacity` is zero.", "Modified `put()` to remove existing keys without calling the eviction callback when `capacity` is zero."]}}
+{"ts": 1793383685973, "run_id": "live-a", "agent_id": "agentA", "type": "node.created", "data": {"node_id": "n7", "parent_id": "n6", "role": "prove", "version": "V2", "label": "Prove improvement"}}
+{"ts": 1793383685974, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n7", "status": "running"}}
+{"ts": 1793383685975, "run_id": "live-a", "agent_id": "agentA", "type": "proof.started", "data": {"from": "V1", "to": "V2"}}
+{"ts": 1793383685976, "run_id": "live-a", "agent_id": "agentA", "type": "proof.done", "data": {"from": "V1", "to": "V2", "proof_hash": null, "proving_ms": 0, "verified_locally": false, "baked": true}}
+{"ts": 1793383685978, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n7", "status": "done"}}
+{"ts": 1793383685983, "run_id": "live-a", "agent_id": "agentA", "type": "node.created", "data": {"node_id": "n8", "parent_id": "n7", "role": "pin", "version": "V2", "label": "Pin memory entry"}}
+{"ts": 1793383685984, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n8", "status": "running"}}
+{"ts": 1793383685985, "run_id": "live-a", "agent_id": "agentA", "type": "ipfs.pinned", "data": {"entry_id": "0x753b642ff99b130e2c0fd2d2fe90209bd62685dea7ec576df37b5cfa92b13d00", "cid": "baked-3f26e8fc3ac981248796da44b69a06e1", "gateway_url": null, "baked": true}}
+{"ts": 1793383685986, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n8", "status": "done"}}
+{"ts": 1793383685987, "run_id": "live-a", "agent_id": "agentA", "type": "node.created", "data": {"node_id": "n9", "parent_id": "n8", "role": "submit", "version": "V2", "label": "Submit on-chain"}}
+{"ts": 1793383685988, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n9", "status": "running"}}
+{"ts": 1793383685989, "run_id": "live-a", "agent_id": "agentA", "type": "chain.tx", "data": {"entry_id": "0x753b642ff99b130e2c0fd2d2fe90209bd62685dea7ec576df37b5cfa92b13d00", "tx": "baked-tx-e879898f4893eade5c7b62e4", "etherscan_url": null, "baked": true, "status": "pending"}}
+{"ts": 1793383685990, "run_id": "live-a", "agent_id": "agentA", "type": "chain.tx", "data": {"entry_id": "0x753b642ff99b130e2c0fd2d2fe90209bd62685dea7ec576df37b5cfa92b13d00", "tx": "baked-tx-e879898f4893eade5c7b62e4", "etherscan_url": null, "baked": true, "status": "confirmed", "block": 0}}
+{"ts": 1793383685991, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n9", "status": "done"}}
+{"ts": 1793383685991, "run_id": "live-a", "agent_id": "agentA", "type": "chain.verified", "data": {"entry_id": "0x753b642ff99b130e2c0fd2d2fe90209bd62685dea7ec576df37b5cfa92b13d00", "verifier_ok": true, "reward_wei": 1000000000000000, "tier": "Candidate", "baked": true}}
+{"ts": 1793383685992, "run_id": "live-a", "agent_id": "agentA", "type": "node.created", "data": {"node_id": "n10", "parent_id": "n6", "role": "revise", "version": "V3", "label": "Revise to V3"}}
+{"ts": 1793383685993, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n10", "status": "running"}}
+{"ts": 1793383693758, "run_id": "live-a", "agent_id": "agentA", "type": "node.updated", "data": {"node_id": "n10", "status": "done"}}
+{"ts": 1793383693759, "run_id": "live-a", "agent_id": "agentA", "type": "run.finished", "data": {"final_version": "V2", "scores_by_version": {"V1": 9250, "V2": 10000}, "total_gain": 750}}

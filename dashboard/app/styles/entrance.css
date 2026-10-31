@@ -1,0 +1,236 @@
+/* Entrances for every dashboard screen, with proof.css building on the same keyframes. Keyframes only say where each
+   thing starts, so the resting styles stay in globals.css. Anything below the fold, or whose rows can be replaced,
+   waits for data-entrance from useEntrance. That attribute leaves "play" once it has run, so rows arriving later from
+   a filter or a live run appear with the ripple alone. */
+
+@keyframes enter-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@keyframes enter-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes enter-left {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+
+@keyframes enter-right {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
+@keyframes climb-grow {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes rail-fill {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* Carry a value along the bar it labels while the bar grows out of the seam. */
+@keyframes ride-left {
+  from {
+    right: 8px;
+    opacity: 0;
+  }
+}
+
+@keyframes ride-right {
+  from {
+    left: 8px;
+    opacity: 0;
+  }
+}
+
+/* A version's mark slides along the rail to its score. */
+@keyframes mark-slide {
+  from {
+    left: 0;
+    opacity: 0;
+  }
+}
+
+/* The code is there first, then what changed washes in over it. */
+@keyframes diff-wash {
+  from {
+    background-color: transparent;
+  }
+}
+
+/* ------------------------------------------------------------ Every screen */
+
+[data-entrance="wait"] {
+  opacity: 0;
+}
+
+.page-head > div {
+  animation: enter-rise var(--t-reveal) var(--ease-out) backwards;
+}
+
+.sample-note {
+  animation: enter-fade var(--t-reveal) var(--ease-out) backwards;
+}
+
+.meter i,
+.shift-rail i {
+  transform-origin: left;
+}
+
+[data-entrance="play"] .meter i,
+.memory-rail .meter i,
+.inspector .meter i,
+.inspector .shift-rail i {
+  animation: rail-fill 620ms var(--ease-out) calc(220ms + var(--i, 0) * 70ms) backwards;
+}
+
+/* ------------------------------------------------------------ Run */
+
+.ribbon-meta,
+.canvas-head {
+  animation: enter-fade var(--t-reveal) var(--ease-out) backwards;
+}
+
+.axis {
+  animation: enter-rise var(--t-reveal) var(--ease-out) calc(var(--i) * 70ms) backwards;
+}
+
+.rail i {
+  animation: mark-slide 620ms var(--ease-out) calc(120ms + var(--i, 0) * 70ms) backwards;
+}
+
+.mem-item {
+  animation: enter-rise var(--t-reveal) var(--ease-out) calc(var(--i) * 70ms) backwards;
+}
+
+/* ------------------------------------------------------------ Compare */
+
+.ab-arm {
+  animation: enter-left var(--t-reveal) var(--ease-out) backwards;
+}
+
+.ab-arm[data-side="right"] {
+  animation-name: enter-right;
+  animation-delay: 380ms;
+}
+
+/* Waits for the count to finish, so the claim lands with its number. */
+.ab-verdict > :not(:first-child) {
+  animation: enter-fade var(--t-reveal) ease-out 1000ms backwards;
+}
+
+.ab-bar[data-side="left"] i {
+  transform-origin: right;
+}
+
+.ab-bar[data-side="right"] i {
+  transform-origin: left;
+}
+
+[data-entrance="play"] .ab-row {
+  --row-delay: calc(var(--i, 0) * 70ms);
+}
+
+[data-entrance="play"] .ab-row > .label,
+[data-entrance="play"] .ab-heads {
+  animation: enter-fade var(--t-reveal) ease-out var(--row-delay) backwards;
+}
+
+[data-entrance="play"] .ab-bar i {
+  animation: rail-fill 620ms var(--ease-out) var(--row-delay) backwards;
+}
+
+[data-entrance="play"] .ab-bar[data-side="left"] b {
+  animation: ride-left 620ms var(--ease-out) var(--row-delay) backwards;
+}
+
+/* With-memory follows, so each row reads as the same attempt, then the gain. */
+[data-entrance="play"] .ab-bar[data-side="right"] i {
+  animation-delay: calc(var(--row-delay) + 140ms);
+}
+
+[data-entrance="play"] .ab-bar[data-side="right"] b {
+  animation: ride-right 620ms var(--ease-out) calc(var(--row-delay) + 140ms) backwards;
+}
+
+[data-entrance="play"] .lesson-fixes li {
+  animation: enter-rise var(--t-reveal) var(--ease-out) calc(var(--i) * 80ms) backwards;
+}
+
+/* ------------------------------------------------------------ Changes */
+
+[data-entrance="play"] .diff-table {
+  animation: enter-fade var(--t-reveal) ease-out backwards;
+}
+
+[data-entrance="play"] .diff-table .add,
+[data-entrance="play"] .diff-table .del {
+  animation: diff-wash 520ms ease-out calc(180ms + var(--i, 0) * 22ms) backwards;
+}
+
+[data-entrance="play"] .changelog li {
+  animation: enter-rise var(--t-reveal) var(--ease-out) calc(120ms + var(--i) * 80ms) backwards;
+}
+
+/* ------------------------------------------------------------ Memory */
+
+.memory-filter {
+  animation: enter-fade var(--t-reveal) var(--ease-out) backwards;
+}
+
+[data-entrance="play"] .ladder-rung > div:first-child {
+  animation: enter-fade var(--t-reveal) ease-out calc(var(--i) * 70ms) backwards;
+}
+
+[data-entrance="play"] .ladder-card {
+  animation: enter-rise var(--t-reveal) var(--ease-out) calc(var(--i) * 70ms) backwards;
+}
+
+/* ------------------------------------------------------------ On-chain */
+
+.chain-step {
+  animation: enter-rise var(--t-reveal) var(--ease-out) calc(var(--i) * 80ms) backwards;
+}
+
+.day-stack {
+  transform-origin: bottom;
+}
+
+[data-entrance="play"] .day-stack {
+  animation: climb-grow 420ms var(--ease-out) calc(var(--i) * 22ms) backwards;
+}
+
+[data-entrance="play"] .chain-funds li {
+  animation: enter-rise var(--t-reveal) var(--ease-out) calc(var(--i) * 80ms) backwards;
+}
+
+[data-entrance="play"] .chain-log-head {
+  animation: enter-fade var(--t-reveal) ease-out backwards;
+}
+
+[data-entrance="play"] .chain-log tbody tr {
+  animation: enter-rise var(--t-reveal) var(--ease-out) calc(var(--i) * 45ms) backwards;
+}
+
+/* The global rule shortens durations but not delays, which would leave things blank for a moment. */
+@media (prefers-reduced-motion: reduce) {
+  .page,
+  .page *,
+  .page *::after {
+    animation-delay: 0s !important;
+  }
+}

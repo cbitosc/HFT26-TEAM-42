@@ -1,0 +1,10 @@
+{
+  "task_signature": "lru-cache",
+  "class_name": "LRUCache",
+  "siblings": ["ttl-cache"],
+  "efficiency_curve": {
+    "metric": "time per op at capacity 5000 divided by time per op at capacity 200",
+    "steps": [[3, 100], [8, 60]],
+    "floor": 20
+  }
+}

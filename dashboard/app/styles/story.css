@@ -1,0 +1,470 @@
+/* The landing page: one fixed stage whose scene is driven by scroll. Headlines ride one long
+   track, up out of the water and away into the sky. --pos runs from 0 to the last beat and is
+   set in components/Story.tsx. */
+
+.story {
+  height: calc(100svh + (var(--beats) - 1) * 70svh);
+  background: var(--ink-950);
+}
+
+/* The page scrolls but never appears to, so a scrollbar would only mislead. */
+:root:has(.story) {
+  scrollbar-width: none;
+}
+
+:root:has(.story)::-webkit-scrollbar {
+  display: none;
+}
+
+.stage {
+  --mirror: 54%;
+  --pos: 0;
+  --clear: 0;
+  /* How far a headline climbs per beat. Taller than any headline, so none ever overlap. */
+  --travel: 40svh;
+  /* Fixed, not sticky: sticky can drift a few pixels against a smoothed scroll. */
+  position: fixed;
+  inset: 0 0 auto;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  touch-action: pan-y;
+  /* Symmetric about the waterline: water mirrors the sky, so light carries straight across it. */
+  background: linear-gradient(
+    180deg,
+    var(--sky-0) 0%,
+    var(--sky-1) calc(var(--mirror) - 22%),
+    var(--sky-2) var(--mirror),
+    var(--sky-1) calc(var(--mirror) + 20%),
+    var(--sky-0) 100%
+  );
+}
+
+/* Light from below the horizon, then the stars and the far shore in front of it. */
+.sky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* The glow breathes, like light through moving air. */
+.sky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 62% 30% at 50% var(--mirror), var(--glass-glow), transparent 100%);
+  animation: breathe 9s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% {
+    opacity: 0.62;
+  }
+}
+
+.sky::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--mirror);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-1) 50%, transparent);
+  opacity: 0.55;
+}
+
+/* With WebGL running the water draws this line itself, so it can move. */
+.stage[data-water="on"] .sky::after {
+  display: none;
+}
+
+.sky canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  opacity: var(--stars, 1);
+  animation: wheel 80s ease-in-out infinite alternate;
+}
+
+@keyframes wheel {
+  to {
+    transform: translateX(-16px);
+  }
+}
+
+/* Starts as the o of the wordmark. The letter comes back as the moon leaves it. */
+[data-dot] {
+  opacity: var(--moon-free, 0);
+}
+
+.moon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background: #e6e0d2 url("/moon.png") center / cover;
+  box-shadow: 0 0 22px 2px rgb(255 248 230 / 0.32);
+  will-change: transform;
+}
+
+/* Slides one tile of two, so it loops with no seam. */
+.sky .clouds {
+  width: 200%;
+  opacity: 0.08;
+  animation: clouds 110s linear infinite;
+}
+
+@keyframes clouds {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Shooting stars: dark for nearly all of a long cycle, then one quick streak. */
+.meteor {
+  position: absolute;
+  left: 72%;
+  top: 6%;
+  width: 150px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #fff, transparent);
+  opacity: 0;
+  transform: rotate(-24deg);
+  animation: meteor 13s linear infinite;
+}
+
+.meteor:nth-of-type(2) {
+  left: 38%;
+  top: 14%;
+  animation-duration: 19s;
+  animation-delay: -7s;
+}
+
+.meteor:nth-of-type(3) {
+  left: 90%;
+  top: 22%;
+  animation-duration: 29s;
+  animation-delay: -18s;
+}
+
+@keyframes meteor {
+  0%,
+  92% {
+    opacity: 0;
+    transform: rotate(-24deg) translateX(0);
+  }
+  93% {
+    opacity: 0.9;
+  }
+  98%,
+  100% {
+    opacity: 0;
+    transform: rotate(-24deg) translateX(-460px);
+  }
+}
+
+.sky [data-twinkle] {
+  animation: twinkle 5.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.stage-id {
+  position: absolute;
+  left: 32px;
+  /* The first line sits on the centre of the nav. */
+  top: 29px;
+  z-index: 3;
+  display: grid;
+  gap: 5px;
+  color: var(--mist-300);
+}
+
+.stage-id .exhibit {
+  color: var(--mist-100);
+}
+
+.glass-nav {
+  position: absolute;
+  right: 32px;
+  top: 20px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.glass-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 13px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.exhibit {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ticks {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.ticks i {
+  width: 12px;
+  height: 2px;
+  background: var(--line-strong);
+  transition: background-color var(--t-base);
+}
+
+.ticks i[data-on="true"] {
+  background: var(--mist-100);
+}
+
+/* Everything above the waterline. Type breaks the surface softly at the bottom. Keep the top stops in step with FADE_FROM and FADE_TO in Story.tsx. */
+.titles {
+  position: absolute;
+  inset: 0 0 calc(100% - var(--mirror));
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to top, transparent 0, #000 14px, #000 80%, transparent 98%);
+  mask-image: linear-gradient(to top, transparent 0, #000 14px, #000 80%, transparent 98%);
+}
+
+.beat-title,
+.beat-note {
+  --d: calc(var(--pos) - var(--i));
+  --distance: max(var(--d), calc(-1 * var(--d)));
+  --sink: clamp(0, calc((var(--distance) - 0.2) / 0.3), 1);
+}
+
+.beat-title {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 0;
+  margin: 0;
+  padding-bottom: 0.13em;
+  font-family: var(--font-display);
+  font-size: clamp(44px, 8.4vw, 124px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  transform: translateY(calc(var(--d) * -1 * var(--travel) - var(--bob, 0px)));
+  /* Gone before the next headline reaches the water, so only one ever rests on it. */
+  opacity: clamp(0, calc(1 - var(--d) * 1.6), 1);
+  will-change: transform, opacity;
+}
+
+.beat-title[data-hook],
+.reflection[data-hook] {
+  font-size: clamp(64px, 15vw, 272px);
+  letter-spacing: -0.02em;
+}
+
+/* The canvas is the reflection once WebGL is running. Until then, or without it, the
+   filtered copy stands in. */
+.water {
+  position: absolute;
+  left: 0;
+  top: var(--mirror);
+  z-index: 1;
+  width: 100%;
+  height: calc(100% - var(--mirror));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms var(--ease-out);
+}
+
+.stage[data-water="on"] .water {
+  opacity: 1;
+}
+
+.stage[data-water="on"] .reflection {
+  display: none;
+}
+
+.reflection {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  top: var(--mirror);
+  font-family: var(--font-display);
+  font-size: clamp(44px, 8.4vw, 124px);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  transform: scaleY(-1);
+  transform-origin: top;
+  --d: calc(var(--pos) - var(--i));
+  translate: 0 calc(100% + var(--d) * var(--travel));
+  opacity: 0.32;
+  filter: url(#water) blur(0.5px);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 72%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 72%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.foot {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 28px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.notes {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 620px;
+  min-height: 96px;
+}
+
+.beat-note {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: clamp(0, calc(1 - var(--sink) * 1.7), 1);
+  transform: translateY(calc(var(--d) * -28px));
+  pointer-events: none;
+}
+
+.beat-note p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.36;
+  text-wrap: pretty;
+}
+
+.beat-note .beat-datum {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--mist-300);
+}
+
+.beat-note .beat-datum[data-verified] {
+  color: var(--verified);
+  opacity: clamp(0, calc(var(--clear) * 4 - 3), 1);
+}
+
+/* Beside the CTA and centred on it, so it belongs to something. */
+.scroll-hint {
+  align-self: flex-end;
+  margin-left: auto;
+  line-height: 52px;
+  opacity: clamp(0, calc(1 - var(--pos) * 4), 1);
+}
+
+/* A pane of glass resting on the water, with its own faint reflection under it. */
+.cta {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 24px;
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  /* No fill: dimming what is behind keeps the label readable when a bright ripple passes. */
+  -webkit-backdrop-filter: blur(6px) brightness(0.86);
+  backdrop-filter: blur(6px) brightness(0.86);
+}
+
+/* The one primary action, so its rim is always at full strength. */
+.glass.cta::before {
+  opacity: 1;
+}
+
+.cta::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: calc(100% + 3px);
+  height: 12px;
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.09), transparent);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+/* Wide enough for the longest note, so the buttons stay put when the note changes. */
+@media (max-width: 1023px) {
+  .stage-id {
+    left: 20px;
+    top: 14px;
+    font-size: 10px;
+  }
+
+  .glass-nav {
+    left: 12px;
+    right: 12px;
+    top: 72px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .glass-nav a {
+    height: 32px;
+    padding: 0 10px;
+  }
+
+  .beat-title,
+  .reflection {
+    left: 20px;
+    right: 20px;
+  }
+
+  .foot {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .notes {
+    width: 100%;
+    max-width: none;
+    min-height: 124px;
+  }
+
+  .beat-note p {
+    font-size: 15px;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+
+}

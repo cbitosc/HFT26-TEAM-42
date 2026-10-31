@@ -1,0 +1,137 @@
+/* Proof page entrances. The staircase plays when the page opens. Below it, the sheet, its score bars and its
+   journey each wait for their own data-seen, so a tall sheet does not play its lower half off screen.
+   Keyframes only say where each thing starts, so the resting styles stay in globals.css. A proof updating on a
+   live run changes data-state, not the animation name, so none of this replays mid-run. */
+
+.proof-page {
+  --climb-gap: 380ms;
+  --pop: cubic-bezier(0.3, 1.45, 0.5, 1);
+}
+
+/* Carries the total up the column while it counts. */
+@keyframes climb-lift {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes stop-on {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@keyframes line-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes line-draw-down {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+/* ------------------------------------------------------------ On open */
+
+.proof-page .climb figcaption {
+  animation: enter-fade var(--t-reveal) var(--ease-out) backwards;
+}
+
+.proof-page .climb-step {
+  --climb-delay: calc(var(--i) * var(--climb-gap));
+}
+
+.proof-page .climb-column > i {
+  transform-origin: bottom;
+}
+
+.proof-page .climb-base {
+  animation: climb-grow 300ms var(--ease-out) var(--climb-delay) backwards;
+}
+
+.proof-page .climb-change {
+  animation: climb-grow 320ms var(--ease-out) calc(var(--climb-delay) + 240ms) backwards;
+}
+
+.proof-page .climb-value {
+  animation: climb-lift 560ms var(--ease-out) var(--climb-delay) backwards;
+}
+
+.proof-page .climb-value span {
+  animation: enter-fade var(--t-base) ease-out calc(var(--climb-delay) + 480ms) backwards;
+}
+
+.proof-page .climb-step > .label {
+  animation: enter-fade var(--t-base) ease-out var(--climb-delay) backwards;
+}
+
+/* ------------------------------------------------------------ On scroll */
+
+.proof-page [data-seen="false"] {
+  opacity: 0;
+}
+
+.proof-page .sheet[data-seen="true"],
+.proof-page .limits-panel[data-seen="true"] {
+  animation: enter-rise var(--t-reveal) var(--ease-out) backwards;
+}
+
+.proof-page .sheet[data-seen="true"] .sheet-gain {
+  animation: enter-fade var(--t-base) ease-out 160ms backwards;
+}
+
+.proof-page .sheet-axes[data-seen="true"] {
+  animation: enter-fade var(--t-base) ease-out backwards;
+}
+
+.proof-page .sheet-axes[data-seen="true"] .shift li {
+  --rail-delay: calc(60ms + var(--i) * 70ms);
+}
+
+.proof-page .sheet-axes[data-seen="true"] .shift-rail i {
+  transform-origin: left;
+  animation: rail-fill 340ms var(--ease-out) var(--rail-delay) backwards;
+}
+
+.proof-page .sheet-axes[data-seen="true"] .shift-rail i[data-tone] {
+  animation-delay: calc(var(--rail-delay) + 260ms);
+}
+
+.proof-page .stepper[data-seen="true"] li {
+  --stop-delay: calc(var(--i) * 130ms);
+}
+
+.proof-page .stepper[data-seen="true"] .stop {
+  animation: stop-on 260ms var(--pop) var(--stop-delay) backwards;
+}
+
+/* Keeps stop-on in the list so a step going active on a live run does not restart it. */
+.proof-page .stepper[data-seen="true"] li[data-state="active"] .stop {
+  animation:
+    stop-on 260ms var(--pop) var(--stop-delay) backwards,
+    pulse-stop 1.1s ease-in-out infinite;
+}
+
+.proof-page .stepper[data-seen="true"] .stop-text {
+  animation: enter-fade var(--t-base) ease-out var(--stop-delay) backwards;
+}
+
+.proof-page .stepper[data-seen="true"] li::after {
+  transform-origin: left;
+  animation: line-draw 130ms linear calc(var(--stop-delay) + 130ms) backwards;
+}
+
+.proof-page .limits-panel[data-seen="true"] .limits li {
+  animation: enter-rise var(--t-reveal) var(--ease-out) calc(120ms + var(--i) * 90ms) backwards;
+}
+
+@media (max-width: 1023px) {
+  .proof-page .stepper[data-seen="true"] li::after {
+    transform-origin: top;
+    animation-name: line-draw-down;
+  }
+}
